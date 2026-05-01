@@ -72,3 +72,6 @@ venv.bak
 # --- OPERATING SYSTEM ---
 .DS_Store
 Thumbs.db
+
+# --- MODELS ---
+/models
