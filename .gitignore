@@ -1,0 +1,74 @@
+# --- PYTHON SPECIFIC ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# --- VIRTUAL ENVIRONMENTS ---
+.venv/
+venv/
+ENV/
+env/
+# For Conda users
+.conda/
+
+# --- VISUAL STUDIO CODE ---
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/
+*.code-workspace
+
+# --- AI/MACHINE LEARNING (Crucial for your Vision project) ---
+# Ignore large model weights
+*.bin
+*.pt
+*.pth
+*.safetensors
+*.ckpt
+*.onnx
+
+# Ignore datasets and local data
+data/
+datasets/
+dataset/
+*.zip
+*.tar.gz
+*.7z
+
+# Training logs
+runs/
+wandb/
+lightning_logs/
+.ipynb_checkpoints
+
+# --- ENVIRONMENT & SECRETS ---
+.env
+.venv
+env.bak
+venv.bak
+.secrets
+
+# --- OPERATING SYSTEM ---
+.DS_Store
+Thumbs.db
