@@ -90,3 +90,6 @@ logs/
 qdrant_storage/
 qdrant_data/
 storage/
+
+# PERSONAL
+ideas.txt
