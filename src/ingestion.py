@@ -4,7 +4,7 @@ from pydantic import BaseModel
 
 client = QdrantClient('http://localhost:6333')
 
-collection_name = 'small metal parts'
+collection_name = 'small_metal_parts'
 
 if not client.collection_exists():
     client.create_collection(

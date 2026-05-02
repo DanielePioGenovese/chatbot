@@ -11,7 +11,7 @@ class Deps:
 # Using VLLM as a service
 
 agent = Agent(
-    model="meta-llama/Llama-3.2-3B-Instruct",
+    model="Qwen/Qwen2.5-7B-Instruct-GPTQ-Int4",
     base_url='http://localhost:8000/v1',
     api_key='vllm-is-free'
 )
