@@ -1,14 +1,14 @@
-service:
+services:
   qdrant:
     build:
       context: .
-      dockerfile: services/qdrant_service/Dockerfile
+      dockerfile: src/qdrant_service/Dockerfile
     healthcheck:
       test: ["CMD", "curl", "-f", "https://localhost:6333/healthz"]
       interval: 10s
       timeout: 5s
       retries: 10
-      stard_period: 30s
+      start_period: 30s
     deploy:
       resources:
         limits:
