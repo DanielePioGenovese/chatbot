@@ -1,0 +1,14 @@
+# --- DOCKER ---
+docker-compose.override.yml
+
+# Docker logs
+*.log
+logs/
+
+# Local Docker config directory
+.docker/
+
+# --- DATABASE VOLUMES (Critical for Qdrant) ---
+qdrant_storage/
+qdrant_data/
+storage/
