@@ -5,10 +5,10 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "llama-cpp-python>=0.3.21",
     "setuptools>=80.10.2",
     "torch",
-    "transformers>=5.7.0",
+    "transformers<5.0",
+    "vllm>=0.7.3",
 ]
 
 [tool.uv.sources]

@@ -1,0 +1,18 @@
+# TECHNOLOGY AND MACHINE PARK
+**Source:** https://www.capitanimetalparts.com/en/technology
+**Keywords:** CNC machines, Swiss lathes, automated warehouse, quality control, raw materials
+
+## Production Machinery
+Our production floor is a blend of specialized capacity and advanced technology. We operate 41 interconnected CNC machines and 38 automatic lathes.
+*   **Swiss-Type CNC Lathes (High Pressure):** Multiple Citizen models (L32, L20, A20) ideal for complex, high-precision turning.
+*   **Fixed-Head CNC Lathes:** High-capacity CMZ series machines (TA-20, CMZ-TTL-66).
+*   **Cam Lathes:** We maintain a dedicated line of traditional cam lathes for targeted production runs (thousands to tens of thousands of pieces), allowing us to respond quickly to urgent requests.
+
+## Support & Automation
+We invest heavily in support machinery, including an automated warehouse for raw material handling, electronic drawer systems for tool tracking, and 4-axis sharpeners (for HSS and hard metals). In 2024, we processed over 1.65 million pounds (751.8 tons) of raw materials, including Brass, Carbon Steel, Stainless Steel, Aluminum, and Plastics.
+
+## Quality Control Lab
+Our parts undergo rigorous inspection using:
+*   DIMAC and DATAGEST optical sorting systems.
+*   BOWMAN X-ray thickness analyzers.
+*   Automator Nano VISII Class 4 Laser Markers for part identification.

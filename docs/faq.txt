@@ -1,0 +1,15 @@
+# FREQUENTLY ASKED QUESTIONS (FAQ) & POLICIES
+**Source:** Internal Knowledge Base
+**Keywords:** MOQ, minimum order quantity, lead times, shipping, tolerances, file formats
+
+## Order Parameters
+*   **Minimum Order Quantity (MOQ):** Our standard MOQ for production runs is 5,000 pieces. However, we offer prototyping and low-volume pre-production runs for existing clients.
+*   **Standard Lead Times:** Prototyping typically takes 2-3 weeks. Full production runs usually require 4 to 6 weeks, depending on material availability and required external surface finishes.
+
+## Engineering & File Formats
+*   **Tolerances:** We routinely hold tolerances as tight as ±0.0002 inches (±0.005 mm) depending on the material and part geometry.
+*   **Accepted File Formats:** Our engineering department accepts CAD files in .STEP, .IGES, .SLDPRT (SolidWorks), and standard 2D PDF drawings for quoting.
+
+## Shipping & Logistics
+*   **Shipping Terms:** All shipments are FOB Cleveland, OH.
+*   **Logistics Partners:** We ship via UPS, FedEx Freight, and various LTL carriers depending on order weight. Expedited shipping is available upon request. International shipping is fully supported for our customers in Canada and Mexico.
