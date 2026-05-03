@@ -24,3 +24,8 @@ torch = [
 name = "pytorch-cu121"
 url = "https://download.pytorch.org/whl/cu121"
 explicit = true
+
+[tool.uv.workspace]
+members = [
+    "src/ingestionrag_service",
+]

@@ -20,21 +20,17 @@ services:
       - "6334:6334"
     environment:
       - QDRANT__STORAGE__ON_DISK_PAYLOAD=true
-      - QDRANT__SERVICE__ENABLE_INFERENCE_SERVICE=true
-      - QDRANT__SERVICE__INFERENCE_URL=http://inferencerag:8000 # Ingestion rag on the server
     volumes:
       - ./qdrant_data:/qdrant/qdrant_data
 
-  inferencerag:
-    image: qdrant/fastembed-inference:latest
-    container_name: qdrant-inference
-    ports:
-      - "8000:8000"
-    deploy:
-      resources:
-        limits:
-          memory: 4G
-    
+  ingestionrag:
+    build: 
+      context: .
+      dockerfile: src/ingestionrag_service/Dockerfile
+    runtime: nvidia
+    volumes:
+      - ./docs:/docs:ro
+
   vllm:
     build:
       context: .
