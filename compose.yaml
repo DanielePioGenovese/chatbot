@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: src/qdrant_service/Dockerfile
     healthcheck:
-      test: ["CMD", "curl", "-f", "https://localhost:6333/healthz"]
+      test: ["CMD", "curl", "-f", "http://localhost:6333/healthz"]
       interval: 10s
       timeout: 5s
       retries: 10
@@ -20,12 +20,14 @@ services:
       - "6334:6334"
     environment:
       - QDRANT__STORAGE__ON_DISK_PAYLOAD=true
+      - QDRANT__SERVICE__ENABLE_INFERENCE_SERVICE=true
+      - QDRANT__SERVICE__INFERENCE_URL=http://inferencerag:8000 # Ingestion rag on the server
     volumes:
       - ./qdrant_data:/qdrant/qdrant_data
 
-  ingestion:
-    image: qdrant/fastembed-ingestion:latest
-    container_name: qdrant-ingestion
+  inferencerag:
+    image: qdrant/fastembed-inference:latest
+    container_name: qdrant-inference
     ports:
       - "8000:8000"
     deploy:
