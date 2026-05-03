@@ -22,6 +22,16 @@ services:
       - QDRANT__STORAGE__ON_DISK_PAYLOAD=true
     volumes:
       - ./qdrant_data:/qdrant/qdrant_data
+
+  ingestion:
+    image: qdrant/fastembed-ingestion:latest
+    container_name: qdrant-ingestion
+    ports:
+      - "8000:8000"
+    deploy:
+      resources:
+        limits:
+          memory: 4G
     
   vllm:
     build:

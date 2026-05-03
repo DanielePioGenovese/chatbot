@@ -75,6 +75,7 @@ Thumbs.db
 
 # --- MODELS ---
 /models
+/local_models
 
 # --- DOCKER ---
 docker-compose.override.yml
