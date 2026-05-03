@@ -1,42 +1,36 @@
-from pydantic_ai import Agent, RunContext
-import asyncio
-from dataclasses import dataclass
+from fastmcp import FastMCP
 from qdrant_client import QdrantClient
+from qdrant_client import models
+import pprint
 
-@dataclass
-class Deps:
-    qdrant: QdrantClient
-    collection_name: str
+mcp = FastMCP('RAG', instructions='Provide a tool to use RAG with Qdrant')
 
-# Using VLLM as a service
-
-agent = Agent(
-    model="Qwen/Qwen2.5-7B-Instruct-GPTQ-Int4",
-    base_url='http://localhost:8000/v1',
-    api_key='vllm-is-free'
-)
-
-@agent.tool
-async def retrive_documents(ctx: RunContext[Deps], search_query: str) ->  str:
-
-    search_result = ctx.deps.qdrant.query_points(
-        collection_name=ctx.deps.collection_name,
-        query=search_query,
-        limit=3
+@mcp.tool
+def retrieve(query: str, client: QdrantClient, collection_name: str, dense_model, sparse_model, late_model, using):
+    
+    prefetch = [
+    models.Prefetch(
+            query=models.Document(text=query, model=dense_model),
+            using="dense",
+            limit=20,
+        ),
+    models.Prefetch(
+            query=models.Document(text=query, model=sparse_model),
+            using="sparse",
+            limit=20,
+        ),
+    ]
+    
+    results = client.query_points(
+        collection_name,
+        prefetch=prefetch,
+        query=models.Document(text=query, model=late_model),
+        using="multi",
+        with_payload=True,
+        limit=10,
     )
 
-
-async def main():
-
-    # result = await agent.run('What is the capital of italy?')
-    # print(result.output)
-
-    async with agent.run_stream('What is the capital of italy?') as response:
-        async for text in response.stream_text():
-            print(text)
-    
-
-            
+    return results
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    mcp.run()
