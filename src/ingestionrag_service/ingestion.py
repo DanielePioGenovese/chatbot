@@ -9,14 +9,16 @@ s = Settings()
 client = QdrantClient(s.client)
 collection_name = s.collection_name
 
-# Load models
+# Load embedding models
 dense_model  = TextEmbedding(s.dense_model)
 sparse_model = SparseTextEmbedding(s.sparse_model)
 multi_model  = LateInteractionTextEmbedding(s.multi_model)
 
+# Reset collection if it exists
 if client.collection_exists(collection_name=collection_name):
     client.delete_collection(collection_name=collection_name)
 
+# Create collection with dense, sparse, and multi-vector configs
 client.create_collection(
     collection_name,
     vectors_config={
@@ -35,11 +37,13 @@ client.create_collection(
     }
 )
 
+# Generate points from documents
 def get_points(directory_path):
     path = Path(directory_path)
     files = [f for f in path.iterdir() if f.is_file()]
     texts = [f.read_text(encoding="utf-8") for f in files]
 
+    # Compute embeddings
     dense_vecs  = list(dense_model.embed(texts))
     sparse_vecs = list(sparse_model.embed(texts))
     multi_vecs  = list(multi_model.embed(texts))
@@ -56,6 +60,7 @@ def get_points(directory_path):
             payload={"title": file.name, "description": texts[idx]}
         )
 
+# Upload points to Qdrant
 client.upload_points(
     collection_name=collection_name,
     points=get_points(s.docs_path),
