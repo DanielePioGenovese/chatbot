@@ -2,14 +2,17 @@ from qdrant_client import QdrantClient
 from qdrant_client.models import models, PointStruct, SparseVector
 from fastembed import TextEmbedding, SparseTextEmbedding, LateInteractionTextEmbedding
 from pathlib import Path
+from settings import Settings
 
-client = QdrantClient('http://qdrant:6333')
-collection_name = 'small_metal_parts'
+s = Settings()
+
+client = QdrantClient(s.client)
+collection_name = s.collection_name
 
 # Load models
-dense_model  = TextEmbedding("BAAI/bge-small-en-v1.5")
-sparse_model = SparseTextEmbedding("Qdrant/bm25")
-multi_model  = LateInteractionTextEmbedding("colbert-ir/colbertv2.0")
+dense_model  = TextEmbedding(s.dense_model)
+sparse_model = SparseTextEmbedding(s.sparse_model)
+multi_model  = LateInteractionTextEmbedding(s.multi_model)
 
 if client.collection_exists(collection_name=collection_name):
     client.delete_collection(collection_name=collection_name)
@@ -17,9 +20,9 @@ if client.collection_exists(collection_name=collection_name):
 client.create_collection(
     collection_name,
     vectors_config={
-        "dense": models.VectorParams(size=384, distance=models.Distance.COSINE),
+        "dense": models.VectorParams(size=s.dense_size, distance=models.Distance.COSINE),
         "multi": models.VectorParams(
-            size=128,
+            size=s.sparse_size,
             distance=models.Distance.COSINE,
             multivector_config=models.MultiVectorConfig(
                 comparator=models.MultiVectorComparator.MAX_SIM
@@ -55,6 +58,6 @@ def get_points(directory_path):
 
 client.upload_points(
     collection_name=collection_name,
-    points=get_points('docs'),
+    points=get_points(s.docs_path),
     batch_size=1
 )

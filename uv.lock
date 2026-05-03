@@ -1788,12 +1788,14 @@ version = "0.1.0"
 source = { virtual = "src/ingestionrag_service" }
 dependencies = [
     { name = "fastembed" },
+    { name = "pydantic-settings" },
     { name = "qdrant-client" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "fastembed", specifier = ">=0.4.2" },
+    { name = "pydantic-settings", specifier = ">=2.11.0" },
     { name = "qdrant-client", specifier = ">=1.12.1" },
 ]
 
