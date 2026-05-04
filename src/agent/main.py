@@ -2,12 +2,15 @@ import asyncio
 from langchain_mcp_adapters.client import MultiServerMCPClient
 from langchain_openai import ChatOpenAI
 from langchain.agents import create_agent
+from settings import Settings
+
+s = Settings()
 
 client = MultiServerMCPClient(
     {
         "rag" : {
-            "transport" : "http",
-            "url" : "http://mcpserver:6000"
+            "transport" : s.transport_settings,
+            "url" : s.uri_mcp_server
         }
     }
 )
@@ -17,12 +20,12 @@ async def main():
     tools = await client.get_tools()
     
     llm = ChatOpenAI(
-        model=inference_settings.chat_model,
-        base_url=inference_settings.vllm_base_url,
+        model=s.model,
+        base_url=s.uri_mcp_server,
         api_key='EMPTY',
-        temperature=0.2,
-        timeout=120,
-        streaming=True
+        temperature=s.temperature,
+        timeout=s.timeout,
+        streaming=s.streaming
     )
     
     agent = create_agent(
@@ -33,5 +36,5 @@ async def main():
 
     return agent
 
-if _name_ == '_main_':
+if __name__ == '_main_':
     asyncio.run(main())

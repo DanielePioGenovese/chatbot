@@ -1,5 +1,4 @@
 from pydantic_settings import BaseSettings 
-from pydantic import BaseModel
 
 class Settings(BaseSettings):
     client: str = 'http://qdrant:6333'
