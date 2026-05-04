@@ -1,36 +1,37 @@
-from fastmcp import FastMCP
-from qdrant_client import QdrantClient
-from qdrant_client import models
-import pprint
+import asyncio
+from langchain_mcp_adapters.client import MultiServerMCPClient
+from langchain_openai import ChatOpenAI
+from langchain.agents import create_agent
 
-mcp = FastMCP('RAG', instructions='Provide a tool to use RAG with Qdrant')
+client = MultiServerMCPClient(
+    {
+        "rag" : {
+            "transport" : "http",
+            "url" : "http://mcpserver:6000"
+        }
+    }
+)
 
-@mcp.tool
-def retrieve(query: str, client: QdrantClient, collection_name: str, dense_model, sparse_model, late_model, using):
+async def main():
+
+    tools = await client.get_tools()
     
-    prefetch = [
-    models.Prefetch(
-            query=models.Document(text=query, model=dense_model),
-            using="dense",
-            limit=20,
-        ),
-    models.Prefetch(
-            query=models.Document(text=query, model=sparse_model),
-            using="sparse",
-            limit=20,
-        ),
-    ]
+    llm = ChatOpenAI(
+        model=inference_settings.chat_model,
+        base_url=inference_settings.vllm_base_url,
+        api_key='EMPTY',
+        temperature=0.2,
+        timeout=120,
+        streaming=True
+    )
     
-    results = client.query_points(
-        collection_name,
-        prefetch=prefetch,
-        query=models.Document(text=query, model=late_model),
-        using="multi",
-        with_payload=True,
-        limit=10,
+    agent = create_agent(
+        model=llm,
+        tools=tools,
+        prompt='Connection to MLFLOW'
     )
 
-    return results
+    return agent
 
-if __name__ == "__main__":
-    mcp.run()
+if _name_ == '_main_':
+    asyncio.run(main())
