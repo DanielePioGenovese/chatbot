@@ -53,6 +53,15 @@ services:
       start_period: 60s 
     restart: unless-stopped
 
+  storemflow:
+    build:
+      context: .
+      dockerfile: src/storemlflow_job/Dockerfile
+    volumes:
+      - /models:/models
+
+
+
   mlflow:
     image: ghcr.io/mlflow/mlflow:v2.19.0
     ports:
