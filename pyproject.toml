@@ -32,4 +32,5 @@ members = [
     "src/ingestionrag_service",
     "src/agent",
     "src/mcp_server_service",
+    "src/mlflow_service",
 ]
