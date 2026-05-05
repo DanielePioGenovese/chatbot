@@ -3,8 +3,10 @@ from langchain_mcp_adapters.client import MultiServerMCPClient
 from langchain_openai import ChatOpenAI
 from langchain.agents import create_agent
 from settings import Settings
+import mlflow
 
 s = Settings()
+mlflow.set_tracking_uri(s.uri_mflow_server)
 
 client = MultiServerMCPClient(
     {
@@ -21,7 +23,7 @@ async def main():
     
     llm = ChatOpenAI(
         model=s.model,
-        base_url=s.uri_mcp_server,
+        base_url=s.uri_vllm,
         api_key='EMPTY',
         temperature=s.temperature,
         timeout=s.timeout,
@@ -31,7 +33,7 @@ async def main():
     agent = create_agent(
         model=llm,
         tools=tools,
-        prompt='Connection to MLFLOW'
+        prompt=s.mflow_prompt_name
     )
 
     return agent
