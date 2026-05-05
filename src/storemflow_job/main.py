@@ -1,16 +1,20 @@
 import mlflow 
 from transformers import AutoTokenizer, AutoModelForCausalLM
+from settings import Settings
+import logging
+
+logger = logging.getLogger(__name__)
+
+s = Settings()
 
 mlflow.set_experiment('MainModel')
 mlflow.set_tracking_uri('http://mflow:5000')
 
-model_id = "Qwen/Qwen2.5-7B-Instruct-GPTQ-Int4"
-
 with mlflow.start_run():
 
-    tokenizer = AutoTokenizer.from_pretrained(model_id)
+    tokenizer = AutoTokenizer.from_pretrained(s.model_id)
     model = AutoModelForCausalLM.from_pretrained(
-        model_id,
+        s.model_id,
         device_map="auto",
         torch_dtype="auto"
     )
@@ -22,5 +26,10 @@ with mlflow.start_run():
         metadata={"quantization": "GPTQ-Int4", "base_model": "Qwen2.5-7B"}
     )
 
-    print('Model saved succesfully')
+    prompt = mlflow.genai.register_prompt(
+        name=s.prompt_name,
+        templeate=s.initial_template,
+        commit="Init Commit",
+    )
 
+    logger.info(f'Model: {model.name} and Prompt: {prompt.name} saved succesfully!')
