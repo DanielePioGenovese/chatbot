@@ -38,11 +38,11 @@ services:
     runtime: nvidia
     environment:
       - NVIDIA_VISIBLE_DEVICES= all
-      - HF_HOME=/root/.cache/huggingface
-      - HUGGING_FACE_HUB_TOKEN=${HUGGING_FACE_HUB_TOKEN:-}
+      # - HF_HOME=/root/.cache/huggingface
+      # - HUGGING_FACE_HUB_TOKEN=${HUGGING_FACE_HUB_TOKEN:-}
       - PYTORCH_ALLOC_CONF=expandable_segments:True
-    volumes:
-      - ./local_models/hf_cache:/root/.cache/huggingface  
+    # volumes:
+    #   - ./local_models/hf_cache:/root/.cache/huggingface  
     ports:
       - "8222:8080"
     healthcheck:
@@ -59,14 +59,16 @@ services:
       dockerfile: src/mlflow_service/Dockerfile
     ports:
       - "5000:5000" 
-    command:
-      - mlflow
-      - server
-      - --host
-      - 0.0.0.0 
-      - --port
-      - "5000"
+    container_name: mlflow
+    command: >
+      sh -c "uv run mlflow server 
+             --host 0.0.0.0 
+             --port 5000 
+             --backend-store-uri sqlite:////mlruns/mlflow.db 
+             --artifacts-destination /mlruns/artifacts 
+             --serve-artifacts && 
+             --uv run -m main "
     volumes:
-      - /models:/models
+      - /mlruns:/mlruns
 
    
