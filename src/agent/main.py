@@ -33,7 +33,7 @@ async def main():
     agent = create_agent(
         model=llm,
         tools=tools,
-        prompt=s.mflow_prompt_name
+        prompt=s.mflow_prompt_name #Necessity to take the prompt from MLFLOW, this strategy is wrong
     )
 
     return agent

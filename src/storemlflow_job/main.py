@@ -7,8 +7,8 @@ logger = logging.getLogger(__name__)
 
 s = Settings()
 
-mlflow.set_experiment('MainModel')
 mlflow.set_tracking_uri('http://mlflow:5000')
+mlflow.set_experiment('chatbot')
 
 with mlflow.start_run():
 
@@ -28,8 +28,7 @@ with mlflow.start_run():
 
     prompt = mlflow.genai.register_prompt(
         name=s.prompt_name,
-        templeate=s.initial_template,
-        commit="Init Commit",
+        template=s.initial_template,
     )
 
     logger.info(f'Model: and Prompt: {prompt.name} saved succesfully!')

@@ -7,4 +7,6 @@ COPY src/storemlflow_job/pyproject.toml src/storemlflow_job/uv.lock ./
 
 RUN uv sync 
 
+ENV GIT_PYTHON_REFRESH=quiet
+
 CMD ["uv", "run", "-m", "main"]
