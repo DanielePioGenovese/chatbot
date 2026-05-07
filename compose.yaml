@@ -53,24 +53,32 @@ services:
       start_period: 60s 
     restart: unless-stopped
 
-  mlflow:
+  mlflow-server:
+    image: ghcr.io/mlflow/mlflow:latest
+    container_name: mlflow-server
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./mlruns:/mlruns
+    command: >
+      pip install mlflow && 
+      mlflow server 
+      --host 0.0.0.0 
+      --port 5000 
+      --backend-store-uri sqlite:////mlruns/mlflow.db 
+      --artifacts-destination /mlruns/artifacts 
+      --serve-artifacts
+
+  mlflow-app:
     build:
       context: .
       dockerfile: src/mlflow_service/Dockerfile
-    ports:
-      - "5000:5000" 
-    container_name: mlflow
+    container_name: mlflow-app
+    depends_on:
+      - mlflow-server
     volumes:
-      - ~/.cache/huggingface/hub:~/.cache/huggingface/hub
-    command: >
-      sh -c "uv run mlflow server 
-             --host 0.0.0.0 
-             --port 5000 
-             --backend-store-uri sqlite:////mlruns/mlflow.db 
-             --artifacts-destination /mlruns/artifacts 
-             --serve-artifacts && 
-             --uv run -m main "
-    volumes:
-      - /mlruns:/mlruns
-
+      - ~/.cache/huggingface/hub:/root/.cache/huggingface/hub 
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow-server:5000 
+    command: uv run -m main
    
