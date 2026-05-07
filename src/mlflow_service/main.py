@@ -6,7 +6,7 @@ logger = logging.getLogger(__name__)
 
 s = Settings()
 
-mlflow.set_tracking_uri('http://localhost:5000')
+mlflow.set_tracking_uri('https://mlflow-server:5000')
 mlflow.set_experiment('chatbot')
 
 with mlflow.start_run():

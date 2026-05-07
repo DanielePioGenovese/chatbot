@@ -61,16 +61,16 @@ services:
     volumes:
       - ./mlruns:/mlruns
     command: >
-      pip install mlflow && 
+      sh -c "pip install mlflow && 
       mlflow server 
       --host 0.0.0.0 
       --port 5000 
       --backend-store-uri sqlite:////mlruns/mlflow.db 
       --artifacts-destination /mlruns/artifacts 
-      --serve-artifacts
+      --serve-artifacts"
 
   mlflow-app:
-    build:
+    build:  
       context: .
       dockerfile: src/mlflow_service/Dockerfile
     container_name: mlflow-app
@@ -78,7 +78,5 @@ services:
       - mlflow-server
     volumes:
       - ~/.cache/huggingface/hub:/root/.cache/huggingface/hub 
-    environment:
-      - MLFLOW_TRACKING_URI=http://mlflow-server:5000 
     command: uv run -m main
    
