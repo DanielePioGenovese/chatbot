@@ -1,5 +1,5 @@
 import mlflow 
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer
 from settings import Settings
 import logging
 

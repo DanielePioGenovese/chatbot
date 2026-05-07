@@ -1,11 +1,10 @@
 from fastmcp import FastMCP
 from qdrant_client import models
-import pprint
 
 mcp = FastMCP('RAG', instructions='Provide a tool to use RAG with Qdrant')
 
 @mcp.tool
-def retrieve(query: str, collection_name: str, dense_model, sparse_model, late_model):
+def retrieve(query: str, collection_name: str, dense_model, sparse_model, late_model, client):
     
     prefetch = [
     models.Prefetch(
