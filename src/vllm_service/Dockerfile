@@ -5,4 +5,4 @@ EXPOSE 8000
 
 # Future path to my MlFlow model
 
-CMD ["vllm", "serve", "--model", "/usr/local/model/mylocalmodel"]
+CMD ["vllm", "serve", "--model", "/models/chatbot_main_model"]

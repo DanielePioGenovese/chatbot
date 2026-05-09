@@ -22,7 +22,28 @@ with mlflow.start_run():
 
     mlflow.transformers.log_model(
         transformers_model=components, 
-        name="Main_model"
+        name=s.log_model_name
     )
     
     logger.info('Model saved succesfully')
+
+    run_id = mlflow.active_run().info.run_id
+    logger.info(f"Moving the model for the id {run_id}")
+
+    mlflow.artifacts.download_artifacts(
+        run_id=run_id,
+        artifac_path=s.artifact_path,
+        dst_path=s.dst_path
+    )
+
+    logger.info("Model downloaded correctly")
+
+    # Prompt
+
+    prompt = mlflow.genai.register_prompt(
+        name=s.main_prompt_name,
+        tempalte=s.prompt_main_model,
+        commit_message='Init main prompt',
+    )
+
+    logger.info(f"Created the correctly the prompt")
