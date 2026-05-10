@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 import mlflow
 from slowapi import Limiter, _rate_limit_exceeded_handler
@@ -7,6 +7,9 @@ from slowapi.errors import RateLimitExceeded
 from settings import Settings
 import logging
 from agent import get_agent
+from validator import PromptRequest, AgentResponse
+
+from langchain_core
 
 logging.basicConfig(
     level=logging.INFO,
@@ -30,9 +33,21 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
+agent = get_agent()
+
 prompt = mlflow.genai.load_prompt(s.mflow_prompt_name)
 
-@app.get("/agent/{prompt}")
+app.get("/health")
+async def health():
+    return {"status" : "ok"}
+
+@app.post("/agent", response_model=AgentResponse)
 @limiter.limit("10/minute")
-async def agent_answer(prompt : str):
-    return await agent.invoke(prompt)
+async def agent_answer(request : Request, body : PromptRequest):
+    try:
+        answer = await(agent.invoke(body.prompt))
+        return AgentResponse(answer)
+    except TimeoutError:
+        raise HTTPException(status_code=504, detail="Out of Time")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
