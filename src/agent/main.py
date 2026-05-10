@@ -4,10 +4,13 @@ from langchain_openai import ChatOpenAI
 from langchain.agents import create_agent
 from settings import Settings
 from fastapi import FastAPI
+import mlflow
 # Insert chatptompt template (the code does not work correctly)
 
 app = FastAPI()
 s = Settings()
+
+mlflow.set_tracking_uri(s.uri_mflow_server)
 
 client = MultiServerMCPClient(
     {
@@ -18,7 +21,11 @@ client = MultiServerMCPClient(
     }
 )
 
+prompt = mlflow.genai.load_prompt(s.mflow_prompt_name)
+
 tools = client.get_tools()
+
+# I will add the correct prompt format here
 
 llm = ChatOpenAI(
     model=s.model,

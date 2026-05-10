@@ -91,7 +91,8 @@ services:
       dockerfile: src/mlflow_service/Dockerfile
     container_name: mlflow-app
     environment:
-      - HUGGING_FACE_HUB_TOKEN=${HUGGING_FACE_HUB_TOKEN:-}
+      - HUGGING_FACE_HUB_TOKEN=${HF_TOKEN:-}
+      - HF_TOKEN=${HF_TOKEN:-}
     depends_on:
       - mlflow-server
     volumes:

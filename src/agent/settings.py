@@ -7,7 +7,7 @@ class Settings(BaseSettings):
     
     model : str = "Qwen/Qwen2.5-7B-Instruct-GPTQ-Int4"
     uri_vllm : str = "http://vllm:8080"
-    mflow_prompt_name : str = "rag-assistant"
+    mflow_prompt_name : str = "main_prompt"
 
     temperature : int = 0.2
     timeout : int = 120

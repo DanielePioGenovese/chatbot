@@ -1,6 +1,6 @@
 import mlflow 
 from settings import Settings
-from transformers import AutoModelForMaskedLM, AutoTokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer
 import logging
 
 logger = logging.getLogger(__name__)
@@ -11,7 +11,7 @@ mlflow.set_tracking_uri(s.mlflow_url)
 mlflow.set_experiment(s.set_experiment)
 
 tokenizer = AutoTokenizer.from_pretrained(s.model_id)
-model = AutoModelForMaskedLM.from_pretrained(s.model_id)
+model = AutoModelForCausalLM.from_pretrained(s.model_id)
 
 with mlflow.start_run():
 
@@ -36,7 +36,7 @@ with mlflow.start_run():
         dst_path=s.dst_path
     )
 
-    logger.info("Model downloaded correctly")
+    logger.info("Model downloaded correctly!")
 
     # Prompt
 
@@ -46,4 +46,4 @@ with mlflow.start_run():
         commit_message='Init main prompt',
     )
 
-    logger.info(f"Created the correctly the prompt")
+    logger.info(f"Prompt created succesfully!")
