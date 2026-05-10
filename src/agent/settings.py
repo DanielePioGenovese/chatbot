@@ -12,4 +12,9 @@ class Settings(BaseSettings):
     temperature : int = 0.2
     timeout : int = 120
     
+    origins : list[str] = [
+        "http://ocalhost:5500"
+    ]
+    
+    
     streaming : bool = True
