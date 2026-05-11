@@ -63,9 +63,11 @@ services:
       - ./model_weights:/data
       - ./models:/models
     ports:
-      - "8222:8080"
+      - "8222:8000"
     command: >
-      vllm serve --model /models/chatbot_main_model 
+      --model /models/main_model
+      --served-model-name main_model
+      --max-model-len 4096
 
 
   mlflow-server:

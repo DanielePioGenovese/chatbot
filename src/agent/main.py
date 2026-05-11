@@ -9,7 +9,7 @@ import logging
 from agent import get_agent
 from validator import PromptRequest, AgentResponse
 
-from langchain_core
+from langchain_core.messages import HumanMessage
 
 logging.basicConfig(
     level=logging.INFO,
