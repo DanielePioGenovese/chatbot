@@ -31,28 +31,6 @@ services:
     volumes:
       - ./docs:/docs:ro
 
-  # vllm:
-  #   build:
-  #     context: .
-  #     dockerfile: src/vllm_service/Dockerfile
-  #   runtime: nvidia
-  #   environment:
-  #     - NVIDIA_VISIBLE_DEVICES= all
-  #     # - HF_HOME=/root/.cache/huggingface
-  #     # - HUGGING_FACE_HUB_TOKEN=${HUGGING_FACE_HUB_TOKEN:-}
-  #     - PYTORCH_ALLOC_CONF=expandable_segments:True
-  #   # volumes:
-  #   #   - ./local_models/hf_cache:/root/.cache/huggingface  
-  #   ports:
-  #     - "8222:8080"
-  #   healthcheck:
-  #     test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
-  #     interval: 30s
-  #     timeout: 20s
-  #     retries: 10
-  #     start_period: 60s 
-  #   restart: unless-stopped
-
   vllm:
     image: vllm/vllm-openai:latest
     runtime: nvidia
