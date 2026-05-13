@@ -23,9 +23,8 @@ client = MultiServerMCPClient(
     }
 )
 
-def get_agent():
-    
-    tools = client.get_tools()
+async def get_agent():
+    tools = await client.get_tools()
     logger.info("MCP Tool loaded correctly!")
     
     llm = ChatOpenAI(

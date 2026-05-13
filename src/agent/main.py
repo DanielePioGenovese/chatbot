@@ -21,7 +21,7 @@ app = FastAPI()
 s = Settings()
 
 limiter = Limiter(key_func=get_remote_address)
-app.state.limiter = Limiter()
+app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 mlflow.set_tracking_uri(s.uri_mflow_server)
 
@@ -37,7 +37,7 @@ agent = get_agent()
 
 prompt = mlflow.genai.load_prompt(s.mflow_prompt_name)
 
-app.get("/health")
+@app.get("/health")
 async def health():
     return {"status" : "ok"}
 
@@ -45,8 +45,8 @@ async def health():
 @limiter.limit("10/minute")
 async def agent_answer(request : Request, body : PromptRequest):
     try:
-        answer = await(agent.invoke(body.prompt))
-        return AgentResponse(answer)
+        result = await agent.ainvoke({"messages": [HumanMessage(content=body.prompt)]})
+        return AgentResponse(answer=result["messages"][-1].content)
     except TimeoutError:
         raise HTTPException(status_code=504, detail="Out of Time")
     except Exception as e:

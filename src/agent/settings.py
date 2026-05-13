@@ -9,12 +9,9 @@ class Settings(BaseSettings):
     uri_vllm : str = "http://vllm:8080"
     mflow_prompt_name : str = "main_prompt"
 
-    temperature : int = 0.2
+    temperature : float = 0.2
     timeout : int = 120
     
-    origins : list[str] = [
-        "http://ocalhost:5500"
-    ]
-    
+    origins : list[str] = ["http://localhost:5500"]
     
     streaming : bool = True

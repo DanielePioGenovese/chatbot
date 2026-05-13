@@ -22,6 +22,8 @@ services:
       - QDRANT__STORAGE__ON_DISK_PAYLOAD=true
     volumes:
       - ./qdrant_data:/qdrant/qdrant_data
+    networks:
+      - chatbot
 
   ingestionrag:
     build: 
@@ -30,6 +32,8 @@ services:
     runtime: nvidia
     volumes:
       - ./docs:/docs:ro
+    networks:
+      - chatbot
 
   vllm:
     image: vllm/vllm-openai:latest
@@ -46,6 +50,8 @@ services:
       --model /models/main_model
       --served-model-name main_model
       --max-model-len 4096
+    networks:
+      - chatbot
 
 
   mlflow-server:
@@ -64,6 +70,8 @@ services:
       --artifacts-destination /mlruns/artifacts 
       --serve-artifacts
       --allowed-hosts '*'"
+    networks:
+      - chatbot
 
   mlflow-app:
     build:  
@@ -80,4 +88,19 @@ services:
       - /mlruns/artifacts/
       - ./models:/models
     command: uv run -m main
+    networks:
+      - chatbot
    
+  app:
+    build:
+      context: .
+      dockerfile: src/agent/Dockerfile
+    container_name: app
+    ports:
+      - "8000:8000"
+    networks:
+      - chatbot
+
+networks:
+  chatbot:
+    driver: bridge
