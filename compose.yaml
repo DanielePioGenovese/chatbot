@@ -26,7 +26,7 @@ services:
       - chatbot
 
   ingestionrag:
-    build: 
+    build:
       context: .
       dockerfile: src/ingestionrag_service/Dockerfile
     runtime: nvidia
@@ -35,11 +35,24 @@ services:
     networks:
       - chatbot
 
+  mcpserver:                          
+    build:
+      context: .
+      dockerfile: src/mcp_service/Dockerfile
+    container_name: mcpserver
+    ports:
+      - "6000:6000"
+    depends_on:
+      qdrant:
+        condition: service_healthy    
+    networks:
+      - chatbot
+
   vllm:
     image: vllm/vllm-openai:latest
     runtime: nvidia
     environment:
-      - NVIDIA_VISIBLE_DEVICES= all
+      - NVIDIA_VISIBLE_DEVICES=all
       - PYTORCH_ALLOC_CONF=expandable_segments:True
     volumes:
       - ./model_weights:/data
@@ -53,28 +66,25 @@ services:
     networks:
       - chatbot
 
-
-  mlflow-server:
+  mflow:                              #
     image: ghcr.io/mlflow/mlflow:latest
-    container_name: mlflow-server
+    container_name: mflow
     ports:
       - "5000:5000"
     volumes:
       - ./mlruns:/mlruns
     command: >
-      sh -c "pip install mlflow && 
-      mlflow server 
-      --host 0.0.0.0 
-      --port 5000 
-      --backend-store-uri sqlite:////mlruns/mlflow.db 
-      --artifacts-destination /mlruns/artifacts 
+      mlflow server
+      --host 0.0.0.0
+      --port 5000
+      --backend-store-uri sqlite:////mlruns/mlflow.db
+      --artifacts-destination /mlruns/artifacts
       --serve-artifacts
-      --allowed-hosts '*'"
     networks:
       - chatbot
 
   mlflow-app:
-    build:  
+    build:
       context: .
       dockerfile: src/mlflow_service/Dockerfile
     container_name: mlflow-app
@@ -82,7 +92,7 @@ services:
       - HUGGING_FACE_HUB_TOKEN=${HF_TOKEN:-}
       - HF_TOKEN=${HF_TOKEN:-}
     depends_on:
-      - mlflow-server
+      - mflow
     volumes:
       - ~/.cache/huggingface/hub:/root/.cache/huggingface/hub
       - /mlruns/artifacts/
@@ -90,7 +100,7 @@ services:
     command: uv run -m main
     networks:
       - chatbot
-   
+
   app:
     build:
       context: .
@@ -98,6 +108,10 @@ services:
     container_name: app
     ports:
       - "8000:8000"
+    depends_on:
+      - mflow
+      - mcpserver
+      - vllm
     networks:
       - chatbot
 

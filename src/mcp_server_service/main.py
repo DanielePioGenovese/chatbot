@@ -1,34 +1,48 @@
 from fastmcp import FastMCP
-from qdrant_client import models
+from qdrant_client import QdrantClient, models
+from pydantic_settings import BaseSettings
+import logging
+from settings import Settings
 
-mcp = FastMCP('RAG', instructions='Provide a tool to use RAG with Qdrant')
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
-@mcp.tool
-def retrieve(query: str, collection_name: str, dense_model, sparse_model, late_model, client):
+
+
+s = Settings()
+
+client = QdrantClient(host=s.qdrant_host, port=s.qdrant_port)
+
+mcp = FastMCP("RAG", instructions="Provide a tool to use RAG with Qdrant")
+
+@mcp.tool()                      
+def retrieve(query: str, collection_name: str) -> list:
+    """Retrieve relevant documents using hybrid search."""
     
     prefetch = [
-    models.Prefetch(
-            query=models.Document(text=query, model=dense_model),
+        models.Prefetch(
+            query=models.Document(text=query, model=s.dense_model),
             using="dense",
             limit=20,
         ),
-    models.Prefetch(
-            query=models.Document(text=query, model=sparse_model),
+        models.Prefetch(
+            query=models.Document(text=query, model=s.sparse_model),
             using="sparse",
             limit=20,
         ),
     ]
-    
+
     results = client.query_points(
         collection_name,
         prefetch=prefetch,
-        query=models.Document(text=query, model=late_model),
+        query=models.Document(text=query, model=s.late_model),
         using="multi",
         with_payload=True,
         limit=10,
     )
 
-    return results
+    return [point.payload for point in results.points]
 
 if __name__ == "__main__":
-    mcp.run(transport='http', host='127.0.0.1', port=9000)
+    logger.info(f"Starting MCP server on {s.host}:{s.port}")
+    mcp.run(transport="http", host=s.host, port=s.port)

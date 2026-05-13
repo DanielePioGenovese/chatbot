@@ -2,11 +2,11 @@ from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     transport_settings : str = "http"
-    uri_mcp_server : str = "http://mcpserver:6000"
-    uri_mflow_server : str = "http://mflow:5000"
+    # uri_mcp_server : str = "http://mcpserver:6000"
+    uri_mflow_server : str = "http://mflow-server:5000"
     
     model : str = "Qwen/Qwen2.5-7B-Instruct-GPTQ-Int4"
-    uri_vllm : str = "http://vllm:8080"
+    uri_vllm : str = "http://vllm:8000"
     mflow_prompt_name : str = "main_prompt"
 
     temperature : float = 0.2
