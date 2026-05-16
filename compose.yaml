@@ -38,7 +38,7 @@ services:
   mcpserver:                          
     build:
       context: .
-      dockerfile: src/mcp_service/Dockerfile
+      dockerfile: src/mcp_server_service/Dockerfile
     container_name: mcpserver
     ports:
       - "6000:6000"
@@ -66,11 +66,11 @@ services:
     networks:
       - chatbot
 
-  mflow:                              #
+  mlflow:
     image: ghcr.io/mlflow/mlflow:latest
-    container_name: mflow
+    container_name: mlflow
     ports:
-      - "5000:5000"
+      - "5001:5000"
     volumes:
       - ./mlruns:/mlruns
     command: >
@@ -80,6 +80,7 @@ services:
       --backend-store-uri sqlite:////mlruns/mlflow.db
       --artifacts-destination /mlruns/artifacts
       --serve-artifacts
+      --allowed-hosts *
     networks:
       - chatbot
 
@@ -92,7 +93,7 @@ services:
       - HUGGING_FACE_HUB_TOKEN=${HF_TOKEN:-}
       - HF_TOKEN=${HF_TOKEN:-}
     depends_on:
-      - mflow
+      - mlflow
     volumes:
       - ~/.cache/huggingface/hub:/root/.cache/huggingface/hub
       - /mlruns/artifacts/
@@ -109,7 +110,7 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      - mflow
+      - mlflow
       - mcpserver
       - vllm
     networks:

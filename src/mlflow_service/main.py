@@ -34,3 +34,6 @@ with mlflow.start_run():
         commit_message="Init main prompt",
     )
     logger.info("Prompt created successfully!")
+
+    client = mlflow.MlflowClient()
+    client.set_registered_model_alias(s.main_prompt_name, "production", version=1)
