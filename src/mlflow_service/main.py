@@ -36,4 +36,8 @@ with mlflow.start_run():
     logger.info("Prompt created successfully!")
 
     client = mlflow.MlflowClient()
-    client.set_registered_model_alias(s.main_prompt_name, "production", version=1)
+    client.set_prompt_alias(                  
+        name=s.main_prompt_name,
+        alias=s.prompt_alias,
+        version=prompt.version             
+        )

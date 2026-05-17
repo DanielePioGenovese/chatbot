@@ -16,16 +16,26 @@ s = Settings()
 
 client = MultiServerMCPClient(
     {
-        "rag" : {
+        "mcpserver" : {
             "transport" : s.transport_settings,
-            "url" : s.uri_mcp_server
+            "url" : s.uri_mcp_server,
+            'headers': {
+                'X-Custom-Header': 'custom-value'
+            }
         }
     }
 )
 
 async def get_agent():
-    tools = await client.get_tools()
-    logger.info("MCP Tool loaded correctly!")
+
+    try:
+        logger.info(f"Connecting to the MCP server: {s.uri_mcp_server} with transport {s.transport_settings}")
+        tools = await client.get_tools()                                                        
+        logger.info("MCP Tool loaded correctly!")
+    except Exception as e:
+        # exc_info=True stampa l'intero traceback dell'errore nei log di Docker
+        logger.critical("Error loading the mcp server:", exc_info=True)
+        raise e
     
     llm = ChatOpenAI(
         model=s.model,
@@ -39,7 +49,7 @@ async def get_agent():
     agent = create_agent(
         model=llm,
         tools=tools,
-        prompt=s.mflow_prompt_name
+        system_prompt=s.mflow_prompt_name
     )   
 
     return agent

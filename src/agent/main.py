@@ -51,15 +51,19 @@ app.add_middleware(
 async def health():
     return {"status": "ok"}
 
+import asyncio
+
 @app.post("/agent", response_model=AgentResponse)
 @limiter.limit("10/minute")
 async def agent_answer(request: Request, body: PromptRequest):
     try:
-        result = await agent.ainvoke(
-            {"messages": [HumanMessage(content=body.prompt)]}
+        result = await asyncio.wait_for(
+            agent.ainvoke({"messages": [HumanMessage(content=body.prompt)]}),
+            timeout=120.0  
         )
         return AgentResponse(answer=result["messages"][-1].content)
-    except TimeoutError:
+    except asyncio.TimeoutError:
         raise HTTPException(status_code=504, detail="Out of Time")
     except Exception as e:
+        logger.exception("Agent error")
         raise HTTPException(status_code=500, detail=str(e))

@@ -1,19 +1,22 @@
 from fastmcp import FastMCP
+from starlette.requests import Request
+from starlette.responses import JSONResponse
 from qdrant_client import QdrantClient, models
-from pydantic_settings import BaseSettings
 import logging
 from settings import Settings
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-
-
 s = Settings()
 
 client = QdrantClient(host=s.qdrant_host, port=s.qdrant_port)
 
 mcp = FastMCP("RAG", instructions="Provide a tool to use RAG with Qdrant")
+
+@mcp.custom_route("/health", methods=["GET"])
+async def health(request: Request):
+    return JSONResponse({"status": "ok"})
 
 @mcp.tool()                      
 def retrieve(query: str, collection_name: str) -> list:

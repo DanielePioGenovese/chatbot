@@ -41,7 +41,7 @@ services:
       dockerfile: src/mcp_server_service/Dockerfile
     container_name: mcpserver
     ports:
-      - "6000:6000"
+      - "8021:8021"
     depends_on:
       qdrant:
         condition: service_healthy    
@@ -108,7 +108,7 @@ services:
       dockerfile: src/agent/Dockerfile
     container_name: app
     ports:
-      - "8000:8000"
+      - "9998:9998"
     depends_on:
       - mlflow
       - mcpserver
