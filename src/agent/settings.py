@@ -6,7 +6,7 @@ class Settings(BaseSettings):
     uri_mlflow_server : str = "http://mlflow:5000"
     
     model : str = "Qwen/Qwen2.5-7B-Instruct-GPTQ-Int4"
-    uri_vllm : str = "http://vllm:8000"
+    uri_vllm : str = "http://vllm:8222/v1"
     mflow_prompt_name : str = "main_prompt"
     mflow_prompt_alias: str = "production"
 
