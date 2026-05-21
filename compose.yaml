@@ -63,6 +63,8 @@ services:
       --model /models/main_model
       --served-model-name main_model
       --max-model-len 4096
+      --enable-auto-tool-choice
+      --tool-call-parser hermes
     networks:
       - chatbot
 

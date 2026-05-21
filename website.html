@@ -94,7 +94,7 @@
 
         <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-4 bg-slate-50 chat-scrollbar">
             <div class="flex items-start space-x-2.5">
-                <div class="bg-blue-600 text-white p-2 rounded-xl text-xs font-bold">AI</div>
+                <div class="bg-blue-600 text-white p-2 rounded-xl text-xs font-bold">Metal Agent</div>
                 <div class="bg-white border border-gray-200 text-gray-700 p-3 rounded-2xl rounded-tl-none shadow-sm max-w-[80%] text-sm">
                     Welcome! I am the TechLogic AI assistant. How can I assist you with component specs or washing machine anomaly logs today?
                 </div>
@@ -133,7 +133,7 @@
 
     <script>
         // Configuration: Explicitly target your running FastAPI port 8999
-        const BACKEND_URL = 'http://localhost:8999/agent';
+        const BACKEND_URL = 'http://localhost:9998/agent';
 
         // Domestic DOM element reference mappings
         const toggleBtn = document.getElementById('chat-toggle-btn');
@@ -187,7 +187,7 @@
 
             } catch (error) {
                 console.error("Critical failure during API retrieval loop:", error);
-                return "Connection error: Unable to reach the local agent. Make sure your vLLM/FastAPI setup is active on port 8999.";
+                return "Connection error";
             }
         }
 
@@ -202,7 +202,7 @@
 
             const badge = isUser 
                 ? `<div class="bg-slate-300 text-slate-700 p-2 rounded-xl text-xs font-bold order-2 ml-2.5">User</div>`
-                : `<div class="bg-blue-600 text-white p-2 rounded-xl text-xs font-bold mr-2.5">AI</div>`;
+                : `<div class="bg-blue-600 text-white p-2 rounded-xl text-xs font-bold mr-2.5">Metal Agent</div>`;
 
             const bubble = `
                 <div class="${isUser ? 'bg-blue-600 text-white rounded-tr-none' : 'bg-white border border-gray-200 text-gray-700 rounded-tl-none'} p-3 rounded-2xl shadow-sm max-w-[80%] text-sm whitespace-pre-line">

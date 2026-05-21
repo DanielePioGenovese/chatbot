@@ -18,9 +18,26 @@ mcp = FastMCP("RAG", instructions="Provide a tool to use RAG with Qdrant")
 async def health(request: Request):
     return JSONResponse({"status": "ok"})
 
-@mcp.tool()                      
-def retrieve(query: str, collection_name: str) -> list:
-    """Retrieve relevant documents using hybrid search."""
+@mcp.tool(
+        name="find_relevant_documents",
+        description="Retrieves technical and company-specific documents from the Qdrant database. "
+        "YOU MUST USE THIS TOOL to answer any questions about company policies, "
+        "metal part specifications, production processes, or internal documentation. "
+        "Do not answer based on your internal knowledge for company-specific queries; "
+        "always fetch the latest data using this tool first."
+)                      
+def retrieve(query: str, collection_name: str = "small_metal_parts") -> list:
+    """
+    Performs a hybrid search (dense + sparse) on Qdrant.
+
+    Args:
+        query: The user's question or search intent.
+        collection_name: The target collection name (e.g., 'small_metal_parts').
+        
+    Returns:
+        A list of payloads retrieved from Qdrant. Use the content of these payloads 
+        to formulate a grounded and accurate response to the user.
+    """
     
     prefetch = [
         models.Prefetch(
@@ -36,7 +53,7 @@ def retrieve(query: str, collection_name: str) -> list:
     ]
 
     results = client.query_points(
-        collection_name,
+        "small_metal_parts",
         prefetch=prefetch,
         query=models.Document(text=query, model=s.late_model),
         using="multi",
