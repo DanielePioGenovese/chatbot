@@ -27,11 +27,7 @@ async def health(request: Request):
 @mcp.tool(
     name="find_relevant_documents",
     description=(
-        "Retrieves technical and company-specific documents from the Qdrant database. "
-        "YOU MUST USE THIS TOOL to answer any questions about company policies, "
-        "metal part specifications, production processes, or internal documentation. "
-        "Do not answer based on your internal knowledge for company-specific queries; "
-        "always fetch the latest data using this tool first."
+        "Prompt by MLFlow"
     )
 )                      
 def retrieve(query: str, collection_name: str = "small_metal_parts") -> list:
@@ -55,7 +51,7 @@ def retrieve(query: str, collection_name: str = "small_metal_parts") -> list:
         query=models.Document(text=query, model=s.dense_model),
         using="dense",
         with_payload=True,
-        limit=10,
+        limit=3,
     )
 
     end_time = time.time()

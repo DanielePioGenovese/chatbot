@@ -93,6 +93,7 @@ qdrant_data/
 storage/
 
 # PERSONAL
+frontendideas.txt
 ideas.txt
 
 mlruns/

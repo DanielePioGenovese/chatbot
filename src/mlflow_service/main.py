@@ -33,11 +33,25 @@ with mlflow.start_run():
         template=s.prompt_main_model,
         commit_message="Init main prompt",
     )
-    logger.info("Prompt created successfully!")
+    logger.info("Main prompt created successfully!")
+
+    prompt_rag = mlflow.genai.register_prompt(
+        name=s.rag_prompt_name,
+        template=s.prompt_rag_model,
+        commit_message="Init main rag prompt",
+    )
+    logger.info("RAG prompt created successfully!")
 
     client = mlflow.MlflowClient()
+    
     client.set_prompt_alias(                  
         name=s.main_prompt_name,
         alias=s.prompt_alias,
         version=prompt.version             
+        )
+
+    client.set_prompt_alias(                  
+        name=s.rag_prompt_name,
+        alias=s.prompt_rag_alias,
+        version=prompt_rag.version             
         )

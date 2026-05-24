@@ -21,7 +21,7 @@ services:
     environment:
       - QDRANT__STORAGE__ON_DISK_PAYLOAD=true
     volumes:
-      - ./qdrant_data:/qdrant/qdrant_data
+      - ./qdrant_data:/qdrant/storage
     networks:
       - chatbot
 
