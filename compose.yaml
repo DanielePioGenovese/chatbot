@@ -1,4 +1,7 @@
 services:
+
+  # ── Infrastructure ────────────────────────────────────────────────────────
+
   qdrant:
     build:
       context: .
@@ -25,28 +28,29 @@ services:
     networks:
       - chatbot
 
-  ingestionrag:
-    build:
-      context: .
-      dockerfile: src/ingestionrag_service/Dockerfile
-    runtime: nvidia
-    volumes:
-      - ./docs:/docs:ro
-    networks:
-      - chatbot
-
-  mcpserver:                          
-    build:
-      context: .
-      dockerfile: src/mcp_server_service/Dockerfile
-    container_name: mcpserver
-    environment:
-      - MLFLOW_TRACKING_URI=http://mlflow:5000
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:latest
+    container_name: mlflow
     ports:
-      - "8021:8021"
-    depends_on:
-      qdrant:
-        condition: service_healthy    
+      - "5001:5000"
+    volumes:
+      - ./mlruns:/mlruns
+    command: >
+      mlflow server
+        --host 0.0.0.0
+        --port 5000
+        --backend-store-uri sqlite:////mlruns/mlflow.db
+        --artifacts-destination /mlruns/artifacts
+        --serve-artifacts
+        --allowed-hosts *
+    environment:
+      - PYTHONUNBUFFERED=1 
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 15s
     networks:
       - chatbot
 
@@ -67,43 +71,78 @@ services:
       --max-model-len 4096
       --enable-auto-tool-choice
       --tool-call-parser hermes
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 20s
+      retries: 10
+      start_period: 60s 
     networks:
       - chatbot
 
-  mlflow:
-    image: ghcr.io/mlflow/mlflow:latest
-    container_name: mlflow
-    ports:
-      - "5001:5000"
-    volumes:
-      - ./mlruns:/mlruns
-    command: >
-      mlflow server
-      --host 0.0.0.0
-      --port 5000
-      --backend-store-uri sqlite:////mlruns/mlflow.db
-      --artifacts-destination /mlruns/artifacts
-      --serve-artifacts
-      --allowed-hosts *
-    networks:
-      - chatbot
+  # ── One-shot jobs ─────────────────────────────────────────────────────────
 
   mlflow-app:
     build:
       context: .
       dockerfile: src/mlflow_service/Dockerfile
     container_name: mlflow-app
+    restart: "no"                          
     environment:
       - HUGGING_FACE_HUB_TOKEN=${HF_TOKEN:-}
       - HF_TOKEN=${HF_TOKEN:-}
+      - PYTHONUNBUFFERED=1 
     depends_on:
-      - mlflow
+      mlflow:
+        condition: service_healthy
     volumes:
       - ~/.cache/huggingface/hub:/root/.cache/huggingface/hub
-      - /mlruns/artifacts/
+      - ./mlruns/artifacts/:/mlruns/artifacts/
       - ./models:/models
     command: uv run -m main
-    networks: 
+    networks:
+      - chatbot
+
+  ingestionrag:
+    build:
+      context: .
+      dockerfile: src/ingestionrag_service/Dockerfile
+    restart: "no"                          
+    runtime: nvidia
+    depends_on:
+      qdrant:
+        condition: service_healthy
+    volumes:
+      - ./docs:/docs:ro
+    networks:
+      - chatbot
+
+  # ── Application layer ─────────────────────────────────────────────────────
+
+  mcpserver:
+    build:
+      context: .
+      dockerfile: src/mcp_server_service/Dockerfile
+    container_name: mcpserver
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+      - PYTHONUNBUFFERED=1
+    ports:
+      - "8021:8021"
+    healthcheck:
+      test: ["CMD-SHELL", "curl --max-time 3 -X POST http://localhost:8021/mcp -H 'Content-Type: application/json' -d '{}' -o /dev/null; test $? -ne 7"]
+      interval: 5s
+      timeout: 4s
+      retries: 15
+      start_period: 10s
+    depends_on:
+      qdrant:
+        condition: service_healthy
+      ingestionrag:
+        condition: service_completed_successfully  
+      mlflow-app:
+        condition: service_completed_successfully   
+    networks:
       - chatbot
 
   app:
@@ -111,12 +150,17 @@ services:
       context: .
       dockerfile: src/agent/Dockerfile
     container_name: app
+    environment:
+      - PYTHONUNBUFFERED=1 
     ports:
       - "9998:9998"
     depends_on:
-      - mlflow
-      - mcpserver
-      - vllm
+      mcpserver:
+        condition: service_healthy
+      vllm:
+        condition: service_healthy
+      mlflow:
+        condition: service_healthy
     networks:
       - chatbot
 
