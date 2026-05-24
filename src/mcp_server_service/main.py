@@ -19,10 +19,11 @@ client = QdrantClient(host=s.qdrant_host, port=s.qdrant_port)
 
 prompt_uri = f"prompts:/{s.mlflow_prompt_name}@{s.mlflow_prompt_alias}"  
 prompt = mlflow.genai.load_prompt(prompt_uri)
-logger.info(f"RAG prompt loaded: {prompt_uri}")
+
+instructions_text = prompt.template
 
 # Initialize FastMCP Server
-mcp = FastMCP("RAG", instructions=prompt)
+mcp = FastMCP("RAG", instructions=instructions_text)
 
 @mcp.custom_route("/health", methods=["GET"])
 async def health(request: Request):

@@ -93,10 +93,9 @@
         </div>
 
         <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-4 bg-slate-50 chat-scrollbar">
-            <div class="flex items-start space-x-2.5">
-                <div class="bg-blue-600 text-white p-2 rounded-xl text-xs font-bold">Metal Agent</div>
+            <div class="flex items-start">
                 <div class="bg-white border border-gray-200 text-gray-700 p-3 rounded-2xl rounded-tl-none shadow-sm max-w-[80%] text-sm">
-                    Welcome! I am the TechLogic AI assistant. How can I assist you with component specs or washing machine anomaly logs today?
+                    Welcome! I am the TechLogic AI assistant. How can I help you today?
                 </div>
             </div>
         </div>
@@ -198,11 +197,7 @@
          */
         function appendMessage(text, isUser) {
             const wrapper = document.createElement('div');
-            wrapper.className = `flex items-start space-x-2.5 ${isUser ? 'justify-end' : ''}`;
-
-            const badge = isUser 
-                ? `<div class="bg-slate-300 text-slate-700 p-2 rounded-xl text-xs font-bold order-2 ml-2.5">User</div>`
-                : `<div class="bg-blue-600 text-white p-2 rounded-xl text-xs font-bold mr-2.5">Metal Agent</div>`;
+            wrapper.className = `flex items-start ${isUser ? 'justify-end' : ''}`;
 
             const bubble = `
                 <div class="${isUser ? 'bg-blue-600 text-white rounded-tr-none' : 'bg-white border border-gray-200 text-gray-700 rounded-tl-none'} p-3 rounded-2xl shadow-sm max-w-[80%] text-sm whitespace-pre-line">
@@ -210,7 +205,7 @@
                 </div>
             `;
 
-            wrapper.innerHTML = isUser ? bubble + badge : badge + bubble;
+            wrapper.innerHTML = bubble;
             messagesContainer.appendChild(wrapper);
             
             // Instantly transition view port bounds to bottom elements
