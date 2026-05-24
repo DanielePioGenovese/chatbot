@@ -40,6 +40,8 @@ services:
       context: .
       dockerfile: src/mcp_server_service/Dockerfile
     container_name: mcpserver
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
     ports:
       - "8021:8021"
     depends_on:
@@ -101,7 +103,7 @@ services:
       - /mlruns/artifacts/
       - ./models:/models
     command: uv run -m main
-    networks:
+    networks: 
       - chatbot
 
   app:

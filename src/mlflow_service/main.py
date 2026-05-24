@@ -41,7 +41,7 @@ with mlflow.start_run():
         commit_message="Init main rag prompt",
     )
     logger.info("RAG prompt created successfully!")
-
+    logger.info(print(prompt_rag))
     client = mlflow.MlflowClient()
     
     client.set_prompt_alias(                  

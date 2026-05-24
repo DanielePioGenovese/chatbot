@@ -28,9 +28,9 @@ async def lifespan(app: FastAPI):
     
     prompt_uri = f"prompts:/{s.mflow_prompt_name}@{s.mflow_prompt_alias}"  
     prompt = mlflow.genai.load_prompt(prompt_uri)
-    logger.info(f"Prompt loaded: {prompt_uri}")
+    logger.info(f"Main prompt loaded: {prompt_uri}")
     
-    agent = await get_agent()
+    agent = await get_agent(prompt_uri)
     logger.info("Agent initialized successfully")
     yield
 app = FastAPI(lifespan=lifespan)

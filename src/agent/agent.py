@@ -26,7 +26,7 @@ client = MultiServerMCPClient(
     }
 )
 
-async def get_agent():
+async def get_agent(prompt):
 
     try:
         logger.info(f"Connecting to the MCP server: {s.uri_mcp_server} with transport {s.transport_settings}")
@@ -49,7 +49,7 @@ async def get_agent():
     agent = create_agent(
         model=llm,
         tools=tools,
-        system_prompt=s.mflow_prompt_name
+        system_prompt=prompt
     )   
 
     return agent

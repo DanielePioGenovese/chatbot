@@ -5,6 +5,7 @@ from qdrant_client import QdrantClient, models
 import logging
 import time
 from settings import Settings
+import mlflow
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -16,8 +17,12 @@ s = Settings()
 # Initialize Qdrant Client
 client = QdrantClient(host=s.qdrant_host, port=s.qdrant_port)
 
+prompt_uri = f"prompts:/{s.mlflow_prompt_name}@{s.mlflow_prompt_alias}"  
+prompt = mlflow.genai.load_prompt(prompt_uri)
+logger.info(f"RAG prompt loaded: {prompt_uri}")
+
 # Initialize FastMCP Server
-mcp = FastMCP("RAG", instructions="Provide a tool to use RAG with Qdrant")
+mcp = FastMCP("RAG", instructions=prompt)
 
 @mcp.custom_route("/health", methods=["GET"])
 async def health(request: Request):
@@ -47,7 +52,7 @@ def retrieve(query: str, collection_name: str = "small_metal_parts") -> list:
 
     # Fast single-stage dense retrieval (Sparse and Late Interaction removed for performance)
     results = client.query_points(
-        collection_name='small_metal_parts',
+        collection_name='small_metal_parts', # Forcing the collection name to be 'small_metal_parts'
         query=models.Document(text=query, model=s.dense_model),
         using="dense",
         with_payload=True,
