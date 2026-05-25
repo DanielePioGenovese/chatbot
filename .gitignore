@@ -39,6 +39,12 @@ env/
 .history/
 *.code-workspace
 
+# --- NODE / FRONTEND ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
 # --- AI/MACHINE LEARNING (Crucial for your Vision project) ---
 # Ignore large model weights
 *.bin
