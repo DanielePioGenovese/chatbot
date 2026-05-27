@@ -9,5 +9,5 @@ RUN uv sync
 
 EXPOSE 8000
 
-CMD ["uv", "run", "fastapi", "run", "main.py", "--host", "0.0.0.0", "--port", "9998"]
+CMD ["uv", "run", "fastapi", "run", "main.py", "--host", "0.0.0.0", "--port", "9997"]
 
