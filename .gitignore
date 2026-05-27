@@ -97,4 +97,5 @@ frontendideas.txt
 ideas.txt
 
 mlruns/
+mlruns/mlflow.db
 model_weights
