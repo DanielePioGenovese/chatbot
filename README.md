@@ -13,6 +13,7 @@ The repository is split into two independent stacks:
 - [Project Structure](#project-structure)
 - [Backend Services](#backend-services)
 - [Frontend App](#frontend-app)
+- [Example Questions](#example-questions)
 - [Quick Start](#quick-start)
 - [Configuration](#configuration)
 - [Useful Commands](#useful-commands)
@@ -97,6 +98,27 @@ By default, the frontend calls:
 ```text
 http://localhost:9998/agent
 ```
+
+## Example Questions
+
+The chatbot is grounded on the company documents in `docs/`. Good test prompts include:
+
+- Tell me about Capitani Metal Parts and what the company does.
+- What products and custom metal components can you manufacture?
+- Which industries do you serve?
+- What CNC machines and production technologies are available?
+- Can you explain your Swiss-type CNC lathes and automatic lathes?
+- What materials do you process?
+- Which surface finishes and treatments can you provide?
+- How does your traceability system work?
+- What quality controls and inspection systems do you use?
+- What tolerances can you hold?
+- What CAD file formats do you accept for a quote?
+- What is the minimum order quantity?
+- How long do prototypes and full production runs usually take?
+- Do you support international shipping?
+- Tell me about the company history and sustainability practices.
+- How can I contact sales or technical support?
 
 ## Quick Start
 
