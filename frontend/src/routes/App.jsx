@@ -20,8 +20,7 @@ import {
 import { useEffect, useRef, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 
-const BACKEND_URL =
-  import.meta.env.VITE_BACKEND_URL ?? "http://localhost:9998/agent";
+const BACKEND_URL = "http://localhost:9997/agent";
 
 const services = [
   {
