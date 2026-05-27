@@ -153,7 +153,7 @@ services:
     environment:
       - PYTHONUNBUFFERED=1 
     ports:
-      - "9998:9998"
+      - "9997:9997"
     depends_on:
       mcpserver:
         condition: service_healthy
