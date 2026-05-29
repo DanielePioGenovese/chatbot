@@ -8,4 +8,5 @@ dependencies = [
     "fastembed>=0.4.2",
     "pydantic-settings>=2.11.0",
     "qdrant-client>=1.12.1",
+    "sentence-transformers>=5.5.1",
 ]

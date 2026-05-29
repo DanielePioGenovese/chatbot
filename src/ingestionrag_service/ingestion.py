@@ -1,6 +1,6 @@
 from qdrant_client import QdrantClient
 from qdrant_client.models import models, PointStruct
-from fastembed import TextEmbedding
+from fastembed import TextEmbedding, SparseTextEmbedding
 from pathlib import Path
 from settings import Settings
 
@@ -13,21 +13,25 @@ collection_name = s.collection_name
 
 # Load ONLY the dense embedding model to save memory and compute time
 dense_model = TextEmbedding(s.dense_model)
-
+sparse_model = SparseTextEmbedding(s.sparse_model)
 def get_points(directory_path):
     path = Path(directory_path)
     files = [f for f in path.iterdir() if f.is_file()]
     texts = [f.read_text(encoding="utf-8") for f in files]
 
-    # Compute ONLY dense embeddings (much faster)
     dense_vecs = list(dense_model.embed(texts))
+    sparse_vecs = list(sparse_model.embed(texts))
 
-    for idx, (file, d) in enumerate(zip(files, dense_vecs)):
+    for idx, (file, d, sp) in enumerate(zip(files, dense_vecs, sparse_vecs)):
         print(f"Embedding: {file.name}")
         yield PointStruct(
             id=idx,
             vector={
                 "dense": d.tolist(),
+                "sparse": models.SparseVector(
+                    indices=sp.indices.tolist(),
+                    values=sp.values.tolist()
+                )
             },
             payload={"title": file.name, "description": texts[idx]}
         )
@@ -48,6 +52,9 @@ if __name__ == "__main__":
         collection_name,
         vectors_config={
             "dense": models.VectorParams(size=s.dense_size, distance=models.Distance.COSINE)
+        },
+        sparse_vectors_config={
+            "sparse": models.SparseVectorParams()
         }
     )
 
