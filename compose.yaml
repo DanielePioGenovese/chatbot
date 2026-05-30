@@ -154,13 +154,13 @@ services:
       - PYTHONUNBUFFERED=1 
     ports:
       - "9997:9997"
-    depends_on:
-      mcpserver:
-        condition: service_healthy
-      vllm:
-        condition: service_healthy
-      mlflow:
-        condition: service_healthy
+    # depends_on:
+    #   mcpserver:
+    #     condition: service_healthy
+    #   vllm:
+    #     condition: service_healthy
+    #   mlflow:
+    #     condition: service_healthy
     networks:
       - chatbot
 

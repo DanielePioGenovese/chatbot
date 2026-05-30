@@ -23,7 +23,7 @@ prompt = mlflow.genai.load_prompt(prompt_uri)
 instructions_text = prompt.template
 
 # Initialize FastMCP Server
-mcp = FastMCP("RAG", instructions=instructions_text)
+mcp = FastMCP("RAG")
 
 @mcp.custom_route("/health", methods=["GET"])
 async def health(request: Request):
@@ -33,19 +33,19 @@ async def health(request: Request):
 @mcp.tool(
     name="find_relevant_documents",
     description=(
-        "Prompt by MLFlow"
+        instructions_text
     )
 )                      
-def retrieve(query: str, collection_name: str = "small_metal_parts") -> list:
+async def retrieve(query: str) -> list:
     """
-    Performs a fast dense vector search on Qdrant.
+    Returns a list of docs using vector search on Qdrant.
 
     Args:
         query: The user's question or search intent.
         collection_name: The target collection name (default is 'small_metal_parts').
         
     Returns:
-        Make a summary to answer to the user question from the retrieved documents.
+        A list of raw document payloads matching the query.
     """
     
     logger.info(f"Starting Qdrant dense search for query: '{query}'")
@@ -53,17 +53,29 @@ def retrieve(query: str, collection_name: str = "small_metal_parts") -> list:
 
     # Fast single-stage dense retrieval (Sparse and Late Interaction removed for performance)
     results = client.query_points(
-        collection_name='small_metal_parts', # Forcing the collection name to be 'small_metal_parts'
-        query=models.Document(text=query, model=s.dense_model),
-        using="dense",
+        collection_name='small_metal_parts',
+        prefetch=[
+            models.Prefetch(
+                query=models.Document(text=query, model=s.dense_model),
+                using="dense",
+                limit=10,
+            ),
+            models.Prefetch(
+                query=models.Document(text=query, model=s.sparse_model),
+                using="sparse",
+                limit=10,
+            ),
+        ],
+        query=models.FusionQuery(fusion=models.Fusion.RRF),
         with_payload=True,
-        limit=3,
-    )
+        limit=5,
+)
 
     end_time = time.time()
     logger.info(f"Qdrant responded in {end_time - start_time:.2f} seconds")
 
-    return [point.payload for point in results.points]
+    points = list(results.points) 
+    return [point.payload for point in points]
 
 if __name__ == "__main__":
     logger.info(f"Starting MCP server on {s.host}:{s.port}")

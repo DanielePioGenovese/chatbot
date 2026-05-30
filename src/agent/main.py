@@ -22,12 +22,11 @@ logger = logging.getLogger(__name__)
 s = Settings()
 
 # Define global variables to hold the shared agent instance and system prompt template
-agent = None 
-
+prompt_template = None
 # Define the lifespan context manager to manage application startup and shutdown
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    global agent, prompt
+    global prompt_template
     # Set the remote tracking URI for the MLflow server
     mlflow.set_tracking_uri(s.uri_mlflow_server)
     
@@ -38,9 +37,8 @@ async def lifespan(app: FastAPI):
     logger.info(f"Main prompt loaded: {prompt_uri}")
     
     # Initialize the LangChain agent using the loaded system prompt template string
-    agent = await get_agent(prompt.template)
-    logger.info("Agent initialized successfully")
     # Yield control back to FastAPI; code after this runs when the application shuts down
+    prompt_template = prompt.template
     yield
 
 # Initialize the FastAPI application instance with the designated lifespan handler
@@ -74,6 +72,7 @@ import asyncio
 @limiter.limit("10/minute")
 async def agent_answer(request: Request, body: PromptRequest):
     try:
+        agent = await get_agent(prompt_template)
         # Asynchronously invoke the LangChain agent with a 120-second hard timeout
         result = await asyncio.wait_for(
             agent.ainvoke({"messages": [HumanMessage(content=body.prompt)]}),
