@@ -134,30 +134,6 @@ const qualitySteps = [
   },
 ];
 
-async function fetchAgentResponse(userPrompt) {
-  try {
-    const response = await fetch(BACKEND_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({ prompt: userPrompt }),
-    });
-
-    if (!response.ok) {
-      throw new Error(
-        `Server returned unexpected error state: ${response.status}`,
-      );
-    }
-
-    const data = await response.json();
-    return data.answer;
-  } catch (error) {
-    console.error("Critical failure during API retrieval loop:", error);
-    return "Connection error";
-  }
-}
 
 function ChatBubble({ text, isUser }) {
   return (
@@ -208,19 +184,85 @@ function ChatWidget() {
     if (!messageText || isLoading) return;
 
     setInputValue("");
+    
+    const userMsgId = crypto.randomUUID();
+    const agentMsgId = crypto.randomUUID();
+
     setMessages((currentMessages) => [
       ...currentMessages,
-      { id: crypto.randomUUID(), text: messageText, isUser: true },
+      { id: userMsgId, text: messageText, isUser: true },
+      { id: agentMsgId, text: "", isUser: false }, 
     ]);
+    
     setIsLoading(true);
 
-    const agentReply = await fetchAgentResponse(messageText);
+    try {
+      const response = await fetch(BACKEND_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "text/event-stream", 
+        },
+        body: JSON.stringify({ prompt: messageText }),
+      });
 
-    setIsLoading(false);
-    setMessages((currentMessages) => [
-      ...currentMessages,
-      { id: crypto.randomUUID(), text: agentReply, isUser: false },
-    ]);
+      if (!response.ok) throw new Error("Network error");
+
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder("utf-8");
+      let done = false;
+
+      // Sostituisci la parte di lettura nel while loop con questa:
+      let buffer = "";
+
+      while (!done) {
+        const { value, done: readerDone } = await reader.read();
+        done = readerDone;
+
+        if (value) {
+          buffer += decoder.decode(value, { stream: true });
+
+          // Estrai solo gli eventi SSE completi (terminati da \n\n)
+          const parts = buffer.split("\n\n");
+          buffer = parts.pop(); // L'ultimo elemento potrebbe essere incompleto
+
+          for (const part of parts) {
+            const line = part.trim();
+            if (!line.startsWith("data: ")) continue;
+
+            const dataStr = line.slice(6); // "data: " = 6 caratteri
+            if (!dataStr) continue;
+
+            try {
+              const data = JSON.parse(dataStr);
+              if (data.done) { done = true; break; }
+              if (data.answer) {
+                setMessages((curr) =>
+                  curr.map((msg) =>
+                    msg.id === agentMsgId
+                      ? { ...msg, text: msg.text + data.answer }
+                      : msg
+                  )
+                );
+              }
+            } catch (e) {
+              console.error("JSON parse error", e, dataStr);
+            }
+          }
+        }
+      }
+    } catch (error) {
+      console.error("Errore durante lo stream:", error);
+      setMessages((currentMessages) =>
+        currentMessages.map((msg) =>
+          msg.id === agentMsgId
+            ? { ...msg, text: "Connection error. Please try again." }
+            : msg
+        )
+      );
+    } finally {
+      setIsLoading(false); // Nascondiamo l'icona di caricamento
+    }
   }
 
   return (

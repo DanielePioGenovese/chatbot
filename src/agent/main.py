@@ -9,8 +9,8 @@ from slowapi.errors import RateLimitExceeded
 from settings import Settings
 import logging
 from agent import get_agent
-from validator import PromptRequest, AgentResponse
-from langchain_core.messages import HumanMessage
+from validator import PromptRequest
+from langchain_core.messages import HumanMessage, AIMessageChunk
 from uuid import uuid4
 import json
 
@@ -83,14 +83,14 @@ async def agent_answer(request: Request, body: PromptRequest):
                 async for chunk in agent.astream(
                     {"messages": [HumanMessage(content=body.prompt)]},
                     config=config, 
-                    tream_mode='messages'
+                    stream_mode='messages'
                     ):
-                        if chunk[0] == 'messages':
-                            token_msg, metadata = chunk[1]
-                            content = getattr(token_msg, "content", "")
-                            if content:
-                                data_chunk = json.dumps({'answer':content})
-                                yield f'data: {data_chunk}\n\n'
+                         message_chunk, _ = chunk
+                         if isinstance(message_chunk, AIMessageChunk):
+                            content = message_chunk.content
+                            if content and isinstance(content, str):
+                                yield f'data: {json.dumps({"answer": content})}\n\n'   
+
 
             except Exception as e:
                         logger.exception("Error during streaming")
