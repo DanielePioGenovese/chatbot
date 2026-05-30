@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Request, HTTPException
+from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 import mlflow
@@ -10,6 +11,8 @@ import logging
 from agent import get_agent
 from validator import PromptRequest, AgentResponse
 from langchain_core.messages import HumanMessage
+from uuid import uuid4
+import json
 
 logging.basicConfig(
     level=logging.INFO,
@@ -68,18 +71,38 @@ async def health():
 import asyncio
 
 # Define the primary agent interface POST endpoint with structural validation and a rate limit
-@app.post("/agent", response_model=AgentResponse)
+@app.post("/agent")
 @limiter.limit("10/minute")
 async def agent_answer(request: Request, body: PromptRequest):
     try:
         agent = await get_agent(prompt_template)
-        # Asynchronously invoke the LangChain agent with a 120-second hard timeout
-        result = await asyncio.wait_for(
-            agent.ainvoke({"messages": [HumanMessage(content=body.prompt)]}),
-            timeout=120.0  
-        )
-        # Extract and return the text content from the last message in the agent's response history
-        return AgentResponse(answer=result["messages"][-1].content)
+        config = {"configurable": {"thread_id": str(uuid4())}}
+
+        async def token_generator():
+            try:
+                async for chunk in agent.astream(
+                    {"messages": [HumanMessage(content=body.prompt)]},
+                    config=config, 
+                    tream_mode='messages'
+                    ):
+                        if chunk[0] == 'messages':
+                            token_msg, metadata = chunk[1]
+                            content = getattr(token_msg, "content", "")
+                            if content:
+                                data_chunk = json.dumps({'answer':content})
+                                yield f'data: {data_chunk}\n\n'
+
+            except Exception as e:
+                        logger.exception("Error during streaming")
+                        yield f"data: {json.dumps({'error': str(e)})}\n\n"
+            finally:
+                yield f"data: {json.dumps({'done': True})}\n\n"
+
+        return StreamingResponse(
+        token_generator(), 
+        media_type="text/event-stream"
+    )
+
     except asyncio.TimeoutError:
         # Raise a 504 Gateway Timeout error if the agent takes longer than 120 seconds to reply
         raise HTTPException(status_code=504, detail="Out of Time")
