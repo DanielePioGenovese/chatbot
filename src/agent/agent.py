@@ -35,7 +35,6 @@ async def get_agent(prompt):
         timeout=s.timeout,
         streaming=s.streaming
         )
-    
     agent = create_agent(model=llm, tools=tools, system_prompt=prompt)
     return agent
     
