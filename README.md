@@ -56,7 +56,20 @@ The entire stack — from model weights to frontend — runs on-premise via Dock
 - 📦 **Fast Python Packaging** — `uv` package manager per microservice for blazing-fast dependency resolution
 
 ---
+## ✨ Example questions:
+* Who founded the company?
 
+* Can you give me the contact details?
+
+* Can you tell me about your products?
+
+* Can you tell me the company's history?
+
+* Tell me more about the technology.
+
+* Do you accept CAD as a file format?
+
+---
 ## 🏗️ Architecture
 
 <br/>
