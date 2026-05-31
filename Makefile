@@ -8,6 +8,12 @@ up:                             ## Start the full stack (infra → jobs → app)
 down:                           ## Stop and remove all containers
 	docker compose down
 
+build_up:
+	docker compose up --build
+
+restart_app:
+	docker compose restart app
+
 # ── Build ──────────────────────────────────────────────────────────────────
 
 build:                          ## Build all images without starting
