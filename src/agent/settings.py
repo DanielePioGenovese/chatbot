@@ -11,7 +11,7 @@ class Settings(BaseSettings):
     mflow_prompt_name : str = "main_prompt"
     mflow_prompt_alias: str = "production"
 
-    temperature : float = 0.2
+    temperature : float = 0.0
     timeout : int = 120
     
     origins: list[str] = [
