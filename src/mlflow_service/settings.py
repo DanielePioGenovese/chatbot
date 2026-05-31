@@ -27,5 +27,5 @@ class Settings(BaseSettings):
     rag_prompt_name: str = "rag_prompt"
     prompt_rag_alias : str = "rag"
     prompt_rag_model : str = """\
-        Search the internal database. Use this tool for queries..
+        Search the internal database. Use this tool for every user query
         """

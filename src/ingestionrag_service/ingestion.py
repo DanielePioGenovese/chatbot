@@ -12,18 +12,25 @@ client = QdrantClient(s.client)
 collection_name = s.collection_name
 
 # Load ONLY the dense embedding model to save memory and compute time
-dense_model = TextEmbedding(s.dense_model)
-sparse_model = SparseTextEmbedding(s.sparse_model)
 def get_points(directory_path):
     path = Path(directory_path)
     files = [f for f in path.iterdir() if f.is_file()]
-    texts = [f.read_text(encoding="utf-8") for f in files]
 
-    dense_vecs = list(dense_model.embed(texts))
-    sparse_vecs = list(sparse_model.embed(texts))
+    def text_generator():
+        for f in files:
+            yield f.read_text(encoding="utf-8")
+
+    dense_model = TextEmbedding(s.dense_model)
+    sparse_model = SparseTextEmbedding(s.sparse_model)
+
+    dense_vecs = dense_model.embed(text_generator())
+    sparse_vecs = sparse_model.embed(text_generator())
 
     for idx, (file, d, sp) in enumerate(zip(files, dense_vecs, sparse_vecs)):
         print(f"Embedding: {file.name}")
+        
+        text_content = file.read_text(encoding="utf-8") 
+        
         yield PointStruct(
             id=idx,
             vector={
@@ -33,7 +40,7 @@ def get_points(directory_path):
                     values=sp.values.tolist()
                 )
             },
-            payload={"title": file.name, "description": texts[idx]}
+            payload={"title": file.name, "description": text_content}
         )
 
 # PROTECTION BLOCK: This code executes ONLY when you run this file directly.
@@ -63,6 +70,6 @@ if __name__ == "__main__":
     client.upload_points(
         collection_name=collection_name,
         points=get_points(s.docs_path),
-        batch_size=1
+        batch_size=64
     )
     print("Upload completed successfully!")
