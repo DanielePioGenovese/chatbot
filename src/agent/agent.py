@@ -27,6 +27,7 @@ client = MultiServerMCPClient({
 # Asynchronous function to initialize, wire up, and return the LangChain agent
 async def get_agent(prompt):
     tools = await client.get_tools()
+    logger.info(f"Tools caricati: {[t.name for t in tools]}")  
     llm = ChatOpenAI(
         model=s.model,
         base_url=s.uri_vllm,
