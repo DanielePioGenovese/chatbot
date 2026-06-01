@@ -32,6 +32,32 @@
 
 ---
 
+## 📚 Table of Contents
+
+- [📖 About](#-about)
+- [✨ Key Features](#-key-features)
+- [✨ Example questions](#-example-questions)
+- [🏗️ Architecture](#%EF%B8%8F-architecture)
+  - [Request Flow](#request-flow)
+- [🛠️ Tech Stack](#%EF%B8%8F-tech-stack)
+- [📁 Project Structure](#-project-structure)
+- [⚙️ Services Deep Dive](#%EF%B8%8F-services-deep-dive)
+  - [🏗️ Infrastructure](#%EF%B8%8F-infrastructure-always-on)
+  - [🔧 Setup Jobs](#-setup-jobs-run-once-then-exit)
+  - [🚀 Application Layer](#-application-layer)
+- [🚀 Getting Started](#-getting-started)
+- [🔧 Configuration Reference](#-configuration-reference)
+- [📡 API Reference](#-api-reference)
+- [📚 Knowledge Base](#-knowledge-base)
+- [📊 MLflow Prompt Registry](#-mlflow-prompt-registry)
+- [🔍 RAG Pipeline](#-rag-pipeline)
+- [🌐 Frontend](#-frontend)
+- [🛑 Stopping the Stack](#-stopping-the-stack)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
+
+---
+
 ## 📖 About
 
 **TechLogic AI Assistant** is a fully **self-hosted RAG chatbot** that lets customers and internal staff query company information — products, processes, certifications, contacts, and FAQs — through a natural language interface powered by a local quantized LLM.
