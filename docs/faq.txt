@@ -1,15 +1,86 @@
-# FREQUENTLY ASKED QUESTIONS (FAQ) & POLICIES
-**Source:** Internal Knowledge Base
-**Keywords:** MOQ, minimum order quantity, lead times, shipping, tolerances, file formats
+TECHLOGIC S.p.A. — FREQUENTLY ASKED QUESTIONS
+Document type: Customer FAQ
+Last updated: January 2026
 
-## Order Parameters
-*   **Minimum Order Quantity (MOQ):** Our standard MOQ for production runs is 5,000 pieces. However, we offer prototyping and low-volume pre-production runs for existing clients.
-*   **Standard Lead Times:** Prototyping typically takes 2-3 weeks. Full production runs usually require 4 to 6 weeks, depending on material availability and required external surface finishes.
+==================================================
+SECTION 1 — PRODUCTS AND CAPABILITIES
+==================================================
 
-## Engineering & File Formats
-*   **Tolerances:** We routinely hold tolerances as tight as ±0.0002 inches (±0.005 mm) depending on the material and part geometry.
-*   **Accepted File Formats:** Our engineering department accepts CAD files in .STEP, .IGES, .SLDPRT (SolidWorks), and standard 2D PDF drawings for quoting.
+Q: What types of components does TechLogic produce?
+A: TechLogic specialises in precision CNC-turned metallic components. Our core product lines include micro turned fasteners (miniature screws, bushings, pins, and threaded inserts with diameters from 0.8 mm to 12 mm), telemetry sensor bodies (machined housings and calibration-ready mounts for laser-vision quality control systems), and zero-defect stock lines (pre-inspected, ready-to-ship components with full dimensional documentation). We also accept fully custom orders based on customer drawings or 3D models.
 
-## Shipping & Logistics
-*   **Shipping Terms:** All shipments are FOB Cleveland, OH.
-*   **Logistics Partners:** We ship via UPS, FedEx Freight, and various LTL carriers depending on order weight. Expedited shipping is available upon request. International shipping is fully supported for our customers in Canada and Mexico.
+Q: What materials can TechLogic machine?
+A: We regularly work with carbon steel, stainless steel (303, 304, 316L), free-machining steel (11SMnPb37), brass (CuZn39Pb3 and similar alloys), aluminium (6061-T6, 7075-T6, 2011), and titanium grade 2 and grade 5 for specialised applications. We can also work with engineering plastics such as PEEK, Delrin, and PTFE for prototype or low-volume orders. For materials not listed here, please contact our technical team at support@techlogic.example.
+
+Q: What tolerances can TechLogic achieve?
+A: Our CNC turning centres are qualified to achieve IT6–IT8 tolerances as standard. For critical dimensions on micro-components, we can hold tolerances down to ±0.005 mm (5 micrometres) on selected features when the customer drawing specifies this and the part geometry allows. Thread tolerances are produced to ISO 6H/6g fits as standard. Tighter tolerances are available on request and subject to feasibility review.
+
+Q: Can TechLogic handle components with complex geometry or tight thread forms?
+A: Yes. Our multi-axis turning centres with live tooling can produce parts requiring cross-holes, milled flats, eccentric features, and precision internal/external threads. We regularly produce parts with M0.8 to M10 threads and can quote for custom thread profiles including UNC, UNF, BSPP, and Whitworth. Feasibility reviews for complex geometries are free of charge and typically completed within one working day.
+
+Q: Does TechLogic offer surface treatments and coatings?
+A: We do not perform surface treatments in-house, but we coordinate with a network of qualified external partners. Available processes include zinc plating (white, yellow, black passivation), hard anodising and natural anodising for aluminium parts, nickel plating, electroless nickel, black oxide, and passivation for stainless steel. Lead times for coated parts vary by process; please request a specific quote that includes coating when submitting your enquiry.
+
+Q: Is there a minimum order quantity (MOQ)?
+A: There is no fixed minimum order quantity for standard stock lines. For custom turned parts, the practical MOQ varies by geometry complexity: simple profiles start from 50 pieces, while complex multi-operation parts typically have an MOQ of 100–200 pieces to justify tooling amortisation. Prototype quantities (1–20 pieces) are available for engineering validation purposes at an adjusted unit price. Contact sales@techlogic.example to discuss your specific volumes.
+
+==================================================
+SECTION 2 — QUOTATIONS AND ORDERING
+==================================================
+
+Q: How do I request a quotation?
+A: You can request a quotation by sending your drawing (PDF, DXF, STEP, or IGES format), required material, quantity, and any surface treatment or certification requirements to sales@techlogic.example. You can also use the AI assistant on the website to submit a preliminary enquiry and receive guidance on the information needed. Standard quotation response time is within 24 business hours for most enquiries.
+
+Q: What information should I include in a quote request?
+A: Please include: part drawing with all dimensions and tolerances clearly marked, required material and specification, required quantity (and whether this is a one-off or recurring order), any surface treatment requirements, required delivery date or lead time target, and any special certification requirements (e.g. material test certificates, first-article inspection, PPAP documentation). The more detail provided upfront, the faster and more accurate the quotation.
+
+Q: Can I request a recurring supply agreement?
+A: Yes. TechLogic offers blanket order agreements and Kanban-style replenishment contracts for customers who require regular batches of the same component. Under these agreements, we hold a negotiated stock buffer and guarantee delivery windows. Contact Alessandro Ricci (a.ricci@techlogic.example) or your regional sales representative to discuss terms.
+
+Q: How long does it take to produce a custom order?
+A: Standard lead time for custom turned components is 10–15 working days from drawing approval and order confirmation. Urgent production slots are available for a surcharge, reducing lead time to 5–7 working days. For stock-line components already in inventory, dispatch can occur within 24 hours. Express EU delivery then adds 24–48 hours in transit.
+
+Q: How do I confirm an order?
+A: Orders are confirmed by issuing a purchase order (PO) referencing TechLogic's quotation number. Upon receipt, we issue an order acknowledgement with confirmed quantities, unit prices, and expected dispatch date within 4 business hours.
+
+==================================================
+SECTION 3 — QUALITY AND DOCUMENTATION
+==================================================
+
+Q: What quality certifications does TechLogic hold?
+A: TechLogic S.p.A. is certified to ISO 9001:2015 (certificate number IT-QMS-2019-00471, issued by Bureau Veritas Italia). Our quality management system covers design review, CNC machining, dimensional inspection, and the supply of precision turned metallic components. Certificate copies are available on request from quality@techlogic.example.
+
+Q: What inspection documentation comes with an order?
+A: Standard shipments include a delivery note with batch reference, part number, and quantity. For stock-line components, a dimensional control summary is included. For custom orders above a defined quantity threshold or where the customer specifies it on the purchase order, we can provide: first-article inspection (FAI) reports to EN 9102 format, dimensional control reports with measurement data for a defined sample, material test certificates (EN 10204 type 2.1 or 3.1), and certificate of conformance. Please specify documentation requirements when placing your order.
+
+Q: Can TechLogic support customer quality audits?
+A: Yes. We welcome customer quality audits at our Milan facility. Please contact Roberto Conti (r.conti@techlogic.example) at least ten working days in advance to schedule an audit visit. Remote documentation audits can also be arranged on shorter notice.
+
+Q: How does TechLogic handle non-conforming parts?
+A: If a delivered batch contains non-conforming parts, please notify quality@techlogic.example within 5 working days of receipt with a description of the non-conformance, photos, and affected quantities. We will issue an 8D corrective action report within 5 business days and arrange replacement or credit as appropriate. We aim to resolve all quality complaints within 10 business days of formal notification.
+
+==================================================
+SECTION 4 — DELIVERY AND LOGISTICS
+==================================================
+
+Q: What are TechLogic's standard delivery times within Europe?
+A: For orders shipped via DHL Express or equivalent, standard transit times within the EU are 24 hours for Northern Italy, 24–48 hours for Italy, 24–48 hours for France, Germany, Austria, Switzerland, and Benelux, and 48–72 hours for Eastern Europe, Spain, and Scandinavia. These are transit times after confirmed dispatch and are subject to carrier conditions.
+
+Q: Do you ship outside the EU?
+A: Yes, we can ship worldwide, though standard delivery commitments apply to the EU only. For shipments to the UK, USA, Switzerland (non-EU routes), Middle East, and Asia, please request a specific freight quote. We provide customs export documentation as required.
+
+Q: Can I track my shipment?
+A: Yes. A tracking link is automatically sent to the email address provided on the purchase order at the time of dispatch. For tracking queries, contact logistics@techlogic.example with your order number.
+
+==================================================
+SECTION 5 — AI ASSISTANT AND DIGITAL SUPPORT
+==================================================
+
+Q: What can the TechLogic AI assistant help with?
+A: The AI assistant, accessible via the chat icon on the bottom right of the website, is available 24 hours a day, 7 days a week. It can answer questions about products, specifications, quality processes, delivery times, documentation requirements, and company contacts. It can help you prepare a quotation request, explain the inspection workflow, retrieve information from our knowledge base, and escalate urgent requests to the sales team. It is not a substitute for formal order placement or legal quotation confirmation.
+
+Q: Is the AI assistant connected to live order status data?
+A: Currently the AI assistant provides knowledge-base answers and can direct you to the right contact for real-time order status. Live order tracking is available via the tracking link sent at dispatch or by contacting logistics@techlogic.example.
+
+Q: Is my conversation with the AI assistant private?
+A: All conversations with the AI assistant are processed on TechLogic's secure internal infrastructure. No conversation data is shared with third parties or used for training external AI models. The system operates fully within TechLogic's private server environment in compliance with EU GDPR regulations.

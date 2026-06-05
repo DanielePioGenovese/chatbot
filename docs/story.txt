@@ -1,8 +1,75 @@
-# COMPANY HISTORY AND VALUES
-**Keywords:** company history, Eraclio Capitani, Michele Capitani, generational transition, sustainability
+TECHLOGIC S.p.A. — COMPANY HISTORY AND PROFILE
+Document type: Company Story and Background
+Last updated: January 2026
 
-## Our Heritage
-For over 50 years, Capitani has been a benchmark in the production of high-precision metal parts. The small metal parts company was founded by Eraclio Capitani as a small shop operating a few traditional cam lathes, the company has grown into a highly automated, Industry 4.0 compliant facility. Today, the company is led by his son, Michele Capitani, successfully navigating the generational transition while maintaining a long-term vision for the business.
+==================================================
+FOUNDING AND EARLY YEARS (2001–2007)
+==================================================
 
-## Quality and Sustainability
-We believe the future of manufacturing lies in sustainable practices. We are ISO 9001:2015 certified, ensuring rigorous quality management. Recently, we published our 2024 Sustainability Report, highlighting our commitment to the environment. Our facility is powered by over 6,300 square feet (590 sq. meters) of solar panels, and we utilize closed-loop vacuum washers and advanced oil-separation and chip-centrifuge systems to minimize our ecological footprint.
+TechLogic S.p.A. was founded in 2001 by Marco Ferretti and his business partner Enrico Sala in the industrial district of Sesto San Giovanni, just north of Milan. Ferretti, a mechanical engineer who had spent a decade working as a production supervisor at a tier-one automotive supplier in Brianza, identified a gap in the local market: small and mid-size manufacturers in Northern Italy were struggling to source precision turned micro-components quickly and reliably. Most domestic suppliers either lacked the metrology equipment to guarantee tight tolerances or could not commit to the short delivery windows that modern just-in-time production lines demanded.
+
+The company began operations with two second-hand CNC Swiss-type automatic turning centres, a single CMM purchased through a government SME grant scheme, and a team of five. Early customers were primarily from the automotive sensor and hydraulics sectors in Lombardy. The first notable contract was a recurring supply of stainless steel M2 fasteners for a tier-two automotive connector manufacturer based in Monza, which required 100% vision inspection and batch certificates with every delivery. That contract established TechLogic's early reputation for documentation rigour.
+
+By 2004, revenue had grown enough to fund the purchase of a third turning centre and to hire the first dedicated quality technician. The company relocated to a larger facility in the Sesto San Giovanni industrial zone, doubling available floor space. A small tool room was also established, allowing TechLogic to grind custom turning inserts in-house and reduce dependency on external tooling suppliers.
+
+In 2005, TechLogic achieved its first third-party quality certification — ISO 9001:2000 — following an 18-month implementation project led by Giulia Marchetti, who had joined the company in 2003 as production planner and would later become COO. The certification opened doors to customers in the medical devices and scientific instrumentation sectors, which required demonstrable quality system compliance as a procurement prerequisite.
+
+By 2007, TechLogic employed 22 people and operated six CNC turning centres, serving clients across Italy and beginning to receive enquiries from Germany and Switzerland.
+
+==================================================
+GROWTH AND CAPABILITY EXPANSION (2008–2015)
+==================================================
+
+The 2008–2009 financial crisis hit the Northern Italian manufacturing sector hard. Several of TechLogic's smaller automotive customers temporarily suspended orders, which created short-term pressure on revenue. Ferretti and Sala responded by deliberately diversifying the customer base into sectors less correlated with automotive cycles: precision optics, industrial measurement, and electronics manufacturing equipment. This strategic pivot proved formative. By 2011 the company derived more than 40% of its revenue from non-automotive customers, a balance that provided resilience and introduced the team to the more demanding tolerances and documentation standards of the optics and instrumentation markets.
+
+In 2010, TechLogic invested in its first laser measurement bench — a contact laser profilometer used to validate surface roughness and diameter deviation on optical component housings. This represented the beginning of what would become the Telemetry Sensor Bodies product line. Working closely with a Milanese startup developing laser triangulation sensors for in-line quality measurement of extruded aluminium profiles, TechLogic developed machined sensor housings with sub-5-micrometre cylindricity requirements and low-vibration geometry. That collaboration led to a three-year supply agreement and became a reference case that attracted further customers from the industrial metrology sector.
+
+In 2012, the company moved to its current premises at Via Industria 24, Milano, a purpose-designed facility of approximately 3,200 square metres comprising a main production floor, temperature-controlled metrology room, raw material warehouse, finished goods storage, and offices. The new building was financed through a combination of retained earnings and a bank-guaranteed Sabatini Law incentive from the Italian Ministry of Economic Development.
+
+Between 2013 and 2015, TechLogic grew from 28 to 51 employees, added four more turning centres (including its first large-format lathe for components up to 120 mm diameter), and implemented its first integrated ERP system to replace the legacy combination of spreadsheets and an accounting-only software package.
+
+In 2015, the ISO 9001 certification was updated to the 2015 revision, which also coincided with the appointment of Roberto Conti as full-time Quality Manager. Conti, who came from a background in aerospace supply chain quality, introduced the non-conformity management structure and the corrective action system that the company still uses today.
+
+==================================================
+TECHNOLOGY INVESTMENT AND DIGITAL TRANSFORMATION (2016–2022)
+==================================================
+
+The period from 2016 onward was defined by systematic investment in precision measurement technology and digital systems. TechLogic's leadership recognised that as component complexity and tolerance requirements increased across its target markets, the ability to inspect and document faster and more comprehensively would become as important a differentiator as machining capability itself.
+
+In 2016, the company installed its first dedicated vision inspection line: a conveyor-fed automated camera system capable of inspecting 600 parts per hour for surface defects, burrs, dimensional anomalies, and missing features. The system was integrated with the ERP so that failed parts were automatically quarantined and their serial positions within the batch were logged. The vision inspection line eliminated virtually all escapes of cosmetic non-conformities that had occasionally slipped through manual final inspection.
+
+In 2018, a new CMM — a Zeiss Contura G2 with a VAST XT scanning head — was installed in the metrology room, replacing the original instrument. The new CMM provided significantly higher throughput for complex 3D part measurements and enabled automated measurement routines for recurring part families, reducing inspection cycle time on established products by approximately 60%.
+
+In 2019, TechLogic received its ISO 9001:2015 recertification through Bureau Veritas, achieving zero major non-conformances — the first zero-finding recertification audit in the company's history.
+
+During the 2020–2021 period, like many manufacturers, TechLogic experienced supply chain disruption and delivery uncertainty. The company responded by increasing its in-house material inventory buffer, establishing secondary supplier relationships for key bar stock grades, and formalising the Zero-Defect Stock Lines programme as a distinct product offering, explicitly targeting procurement managers who needed fast-dispatch validated components without placing custom orders.
+
+In 2022, Luca Ferrara joined the company as Head of Digital Systems and AI. Ferrara, who held a master's degree in computer science from Politecnico di Milano and had previously worked at a Torino-based industrial software company, was tasked with leading the company's data infrastructure modernisation, including implementation of a digital quality management system and exploration of AI-assisted tools for production and customer support.
+
+==================================================
+THE AI CHAPTER (2023–PRESENT)
+==================================================
+
+TechLogic's entry into AI-assisted operations began in 2023 with a pilot project to automate drawing feasibility classification using a trained machine learning model. The model, trained on several years of historical quotation data, was used to flag incoming customer drawings that contained features historically associated with higher manufacturing risk, routing them automatically to the senior application engineer for pre-screening. The pilot reduced the rate of quotations requiring mid-process revision by approximately 30%.
+
+In 2024, the project scope expanded. Working with an external AI consultancy, TechLogic began building a retrieval-augmented generation (RAG) knowledge base that combined product documentation, quality process guides, inspection records, and FAQ content into a searchable corpus. The goal was to create a virtual assistant capable of answering detailed technical and commercial questions from customers and internal staff without requiring human intervention for routine queries.
+
+The first version of the AI assistant was deployed on the company website in late 2024 as a limited-access beta. The response from customers was strongly positive: the assistant handled approximately 65% of inbound product enquiries without escalation during the pilot period, with customer satisfaction scores higher than baseline for equivalent email responses.
+
+The full public deployment of the AI assistant, integrated with the customer-facing website, was completed in early 2025. The assistant runs on TechLogic's own on-premise GPU infrastructure, ensuring that customer conversations and internal data never leave the company's network. The RAG knowledge base is updated quarterly with new documentation, revised process guides, and product catalogue changes.
+
+As of January 2026, TechLogic employs 74 people, operates fourteen CNC turning centres, and serves customers in eleven European countries. The company remains privately held, with Ferretti and Sala as majority shareholders and management as minority stakeholders. Annual revenue for 2025 was approximately EUR 18.4 million. The management team's stated goal for the 2026–2028 period is to expand the sensor body product line into the aerospace NDT market and to extend the AI assistant's capabilities to include real-time production status updates and automated documentation generation.
+
+==================================================
+VALUES AND OPERATING PRINCIPLES
+==================================================
+
+Since its founding, TechLogic has operated according to three principles that the management team considers non-negotiable:
+
+Precision: the company will not accept production standards that cannot be verified by measurement and documented by evidence. If a tolerance cannot be reliably held, it is not quoted. If a batch cannot be traced to its source material, it is not shipped.
+
+Traceability: every component leaves the TechLogic facility with a clear, retrievable identity. The batch reference links the part to the machine run, the operator, the material lot, the inspection record, and the delivery document. This is not a regulatory requirement — it is a professional standard.
+
+Responsiveness: customers working in manufacturing environments cannot afford slow answers. TechLogic commits to fast quotation turnaround, short lead times, and 24/7 AI-assisted support because it understands what it costs to wait.
+
+These principles have guided every significant investment decision the company has made, from the first CMM in 2001 to the AI infrastructure deployed in 2025.

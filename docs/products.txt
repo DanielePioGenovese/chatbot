@@ -1,27 +1,167 @@
-# PRODUCT CATALOG AND CAPABILITIES
-**Keywords:** custom metal parts, turned parts, surface treatments, manufacturing sectors, CNC machining
+TECHLOGIC S.p.A. — PRODUCT CATALOGUE AND SPECIFICATIONS
+Document type: Product Reference
+Last updated: January 2026
 
-## Core Offerings
-Capitani Metal Parts specializes in precision turned metal components manufactured entirely to customer drawings and specifications. Thanks to our deep knowledge of materials and production processes, our technical office works alongside our clients to solve complex engineering and manufacturing challenges. 
+==================================================
+OVERVIEW
+==================================================
 
-## Supported Sectors
-We manufacture customized components for a wide variety of industries, including:
-*   Railway & Mass Transit
-*   Automotive & Transportation
-*   Electronics & Telecommunications
-*   Plumbing, HVAC, and Sanitary
-*   Electrical Power & Distribution
-*   Hydraulics (Oleodinamica)
-*   Agriculture Machinery
-*   Lighting Fixtures
+TechLogic S.p.A. designs and manufactures precision CNC-turned metallic components for industrial, mechanical, and instrumentation applications. The product range is divided into three main lines, each optimised for a different customer need: micro-scale fastening and hardware, precision housings for optical and sensing systems, and pre-validated ready-to-ship stock components. Custom orders based on customer drawings are accepted across all product families.
 
-## Surface Finishes and Treatments
-Through established partnerships with certified external vendors, we deliver fully finished products. Available surface treatments include:
-*   Zinc plating & Zinc-nickel plating
-*   Nickel plating & Chrome plating
-*   Blackening (Black Oxide)
-*   Copper plating & Tin plating
-*   Geomet® coatings
-*   Annealing, Case-hardening, Nitriding, and Tempering
-*   Phosphating & Passivation
-*   Anodizing (Anodic oxidation) & Alodine
+==================================================
+PRODUCT LINE 1 — MICRO TURNED FASTENERS
+==================================================
+
+Category: Precision Hardware and Miniature Mechanical Components
+Primary markets: electronics manufacturing, automotive sensors, medical devices, scientific instrumentation, watchmaking, pneumatic micro-assemblies
+
+Description:
+The Micro Turned Fasteners line covers the full spectrum of miniature and small-format turned hardware used in compact industrial assemblies. Parts in this family are produced on high-speed Swiss-type automatic turning centres, which maintain dimensional stability at small diameters through guide-bushing support of the bar stock. Every fastener in this line is produced with full batch traceability linked to the originating material heat number.
+
+Product sub-families:
+
+1.1 Miniature Machine Screws
+   Standard head forms: pan head, countersunk (flat head), cylindrical head, hexagon socket head
+   Thread range: M0.8 × 0.2 through M10 × 1.5; UNC #0-80 through 3/8"-16 available on request
+   Diameter range: 0.8 mm to 10 mm shank
+   Length range: 1.5 mm to 60 mm
+   Standard tolerance: ISO 6g for external thread; IT7 on shank diameter
+   Materials: stainless 303, stainless 316L, brass CuZn39Pb3, aluminium 6061-T6, carbon steel 11SMnPb37
+   Surface options: plain, passivated (stainless), nickel plated, zinc plated (white/yellow/black)
+   Typical applications: PCB standoffs, sensor mounting, miniature enclosure fastening
+
+1.2 Threaded Inserts and Bushings
+   Types: self-tapping inserts, press-fit bushings, flanged bushings, step bushings, guide pins
+   OD range: 2 mm to 20 mm
+   Length range: 2 mm to 35 mm
+   Thread internal bore: M1.6 to M8; smooth bore also available
+   Tolerance: IT6 on OD for press-fit variants; H7 on internal bore standard
+   Materials: brass CuZn39Pb3, stainless 303, steel 11SMnPb37, aluminium 6061
+   Surface options: plain, nickel plated, hard anodised (aluminium variants)
+   Typical applications: plastic assembly inserts, motor and bearing housings, fixture alignment
+
+1.3 Precision Dowel and Taper Pins
+   Diameter range: 1 mm to 12 mm
+   Length range: 5 mm to 80 mm
+   Cylindricity tolerance: ≤ 0.003 mm on ground variants
+   Surface roughness: Ra ≤ 0.4 µm (ground finish option available)
+   Materials: stainless 303, tool steel, aluminium
+   Taper options: 1:50 standard (ISO 2339); custom tapers on request
+   Typical applications: precision fixture dowelling, assembly alignment, shear pin applications
+
+1.4 Custom Micro-Turned Parts (fastener family)
+   Produced to customer drawing. Geometry feasibility review included in quotation process. Typical lead time: 10–15 working days.
+
+==================================================
+PRODUCT LINE 2 — TELEMETRY SENSOR BODIES
+==================================================
+
+Category: Precision Machined Housings and Instrumentation Components
+Primary markets: industrial metrology, quality control equipment, laser measurement systems, non-destructive testing (NDT), autonomous inspection platforms
+
+Description:
+The Telemetry Sensor Bodies line provides machined housings, mounting brackets, and calibration-ready mounts specifically engineered for optical and sensing systems used in laser-vision quality control lines. Parts in this family require tight cylindricity, co-axiality, and low surface roughness to avoid optical path distortion or sensor signal drift. Production is performed on precision turning centres with live tooling and is followed by CMM validation of all form tolerances.
+
+Product sub-families:
+
+2.1 Sensor Housing Cylinders
+   OD range: 8 mm to 80 mm
+   Bore diameter: 4 mm to 60 mm
+   Wall thickness: minimum 1.5 mm
+   Length: 10 mm to 150 mm
+   Cylindricity: ≤ 0.005 mm standard; ≤ 0.002 mm on request
+   Co-axiality of bore to OD: ≤ 0.008 mm standard
+   Surface roughness (bore): Ra ≤ 0.8 µm standard; Ra ≤ 0.4 µm on request
+   Materials: aluminium 6061-T6, aluminium 7075-T6, stainless 316L, titanium grade 5 (Ti6Al4V)
+   Connector styles: M12×0.5 thread-in, bayonet, flanged clamp, custom on request
+   Typical applications: laser triangulation sensor bodies, confocal displacement probe housings, fibre-optic collimator mounts
+
+2.2 Calibration Mounts and Alignment Brackets
+   Precision datum surfaces with parallelism and perpendicularity tolerances ≤ 0.005 mm
+   Adjustable angle variants available (fixed or slotted)
+   Through-holes with H7 tolerance for pin or bolt alignment
+   Materials: aluminium 6061 (standard), stainless 303 (high-stability variant)
+   Surface treatment: hard anodise for aluminium mounts; passivation for stainless
+   Typical applications: mounting blocks for laser line scanners, vision camera brackets, CMM probe holders
+
+2.3 Custom Sensor Bodies and Instrument Housings
+   Produced to customer drawing or 3D model (STEP/IGES). Complete DFM (design for manufacturability) review included. Typical lead time: 12–18 working days for first article.
+
+==================================================
+PRODUCT LINE 3 — ZERO-DEFECT STOCK LINES
+==================================================
+
+Category: Validated Ready-to-Ship Components
+Primary markets: production procurement, MRO (maintenance, repair, and operations), replacement parts supply, production lines requiring urgent replenishment
+
+Description:
+The Zero-Defect Stock Lines programme provides a catalogue of pre-manufactured and pre-inspected components held in inventory at the Milan warehouse, available for same-day or next-day dispatch. All stock components have passed full final inspection and are stored in documented batches. Each stock batch has an associated dimensional control summary available for immediate download from the quality department.
+
+Stock programme features:
+- Available for dispatch within 24 hours of order confirmation received before 13:00 CET
+- Inspection certificates included with every shipment
+- Minimum shelf stock quantity guaranteed under consignment or blanket order agreements
+- Batch-level traceability records retained for 10 years
+- Recurring supply plans available with agreed replenishment trigger quantities
+
+Current stock catalogue highlights:
+
+3.1 Standard Hexagon Socket Head Screws — M2, M2.5, M3, M4, M5, M6 (stainless 303 and brass)
+3.2 Flanged Bushings — 3 mm to 10 mm OD, steel and brass, H7 bore
+3.3 Precision Dowel Pins — 2 mm to 8 mm diameter, stainless 303, ground finish
+3.4 Sensor Mounting Cylinders — 12 mm and 20 mm OD, aluminium 6061, standard bore configurations
+3.5 Taper Pins — 1:50 taper, 2 mm to 6 mm, stainless 303
+
+Custom stocking agreements: customers can request dedicated stock buffers for non-catalogue parts under a minimum annual volume commitment. Contact sales@techlogic.example for details.
+
+==================================================
+CUSTOM MANUFACTURING SERVICE
+==================================================
+
+Beyond the three standard product lines, TechLogic accepts fully custom orders for any precision turned component within our machine envelope:
+
+Maximum bar stock diameter:   65 mm (Swiss-type) / 120 mm (large-format lathe)
+Maximum turned length:        250 mm (single clamping)
+Minimum turned diameter:      0.5 mm (Swiss-type)
+Number of controlled axes:    up to 5-axis (C-axis with live tooling)
+Thread capabilities:          single-point turning, tapping, rolling; M0.8 to M64; trapezoidal and ACME on request
+Surface requirements:         Ra 0.2 µm achievable with fine-finish boring and polishing
+
+Accepted drawing formats: PDF, DXF (2D), STEP, IGES, Parasolid (3D)
+Accepted file submissions: email (sales@techlogic.example) or secure upload link provided on request
+
+==================================================
+MATERIALS REFERENCE TABLE
+==================================================
+
+Aluminium 6061-T6:       General machining, brackets, sensor bodies. Good corrosion resistance, excellent machinability.
+Aluminium 7075-T6:       High-strength structural components. Higher hardness; slightly reduced machinability vs 6061.
+Stainless Steel 303:     Free-machining stainless for fasteners and hardware. Not suitable for welding applications.
+Stainless Steel 304:     Standard austenitic stainless. Better corrosion resistance; slightly harder to machine than 303.
+Stainless Steel 316L:    Marine and chemical environments. Higher molybdenum content; excellent pitting resistance.
+Brass CuZn39Pb3:         Excellent machinability, good conductivity, low friction. Suitable for inserts, fittings, bushings.
+Carbon Steel 11SMnPb37:  Free-machining carbon steel for non-corrosive environments. Low cost, high volume production.
+Titanium Grade 2:        Commercially pure Ti. High corrosion resistance, lower strength than Ti6Al4V.
+Titanium Grade 5 (Ti6Al4V): Aerospace and medical grade. High strength-to-weight. Longer cycle times; premium pricing.
+PEEK:                    Engineering plastic for lightweight, low-friction, or electrically isolating components.
+
+==================================================
+ORDERING CODES AND PART NUMBERING
+==================================================
+
+TechLogic assigns a unique part number to every custom component upon first quotation. The format is:
+  TL-[ProductFamily]-[DrawingRevision]-[CustomerCode]-[Sequence]
+
+Example: TL-MF-03-CUST001-0047
+  TL = TechLogic
+  MF = Micro Fasteners family
+  03 = drawing revision 3
+  CUST001 = customer code
+  0047 = sequential component number
+
+Stock-line components use a catalogue prefix:
+  TL-STK-[Material Code]-[Dimension Code]
+
+Example: TL-STK-SS303-M3X8-CSH refers to a stainless 303 M3×0.5 countersunk hex socket head screw, 8 mm length.
+
+Customers are encouraged to reference TechLogic part numbers on all purchase orders to eliminate drawing-revision ambiguity.

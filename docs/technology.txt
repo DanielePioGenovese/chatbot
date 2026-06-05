@@ -1,17 +1,151 @@
-# TECHNOLOGY AND MACHINE PARK
-**Keywords:** CNC machines, Swiss lathes, automated warehouse, quality control, raw materials
+TECHLOGIC S.p.A. — TECHNOLOGY AND INFRASTRUCTURE OVERVIEW
+Document type: Technology Reference
+Last updated: January 2026
 
-## Production Machinery
-Our production floor is a blend of specialized capacity and advanced technology. We operate 41 interconnected CNC machines and 38 automatic lathes.
-*   **Swiss-Type CNC Lathes (High Pressure):** Multiple Citizen models (L32, L20, A20) ideal for complex, high-precision turning.
-*   **Fixed-Head CNC Lathes:** High-capacity CMZ series machines (TA-20, CMZ-TTL-66).
-*   **Cam Lathes:** We maintain a dedicated line of traditional cam lathes for targeted production runs (thousands to tens of thousands of pieces), allowing us to respond quickly to urgent requests.
+==================================================
+OVERVIEW
+==================================================
 
-## Support & Automation
-We invest heavily in support machinery, including an automated warehouse for raw material handling, electronic drawer systems for tool tracking, and 4-axis sharpeners (for HSS and hard metals). In 2024, we processed over 1.65 million pounds (751.8 tons) of raw materials, including Brass, Carbon Steel, Stainless Steel, Aluminum, and Plastics.
+TechLogic's technology stack spans three domains: precision manufacturing equipment, quality inspection and metrology systems, and digital and AI infrastructure. This document describes the key systems in each domain, their capabilities, and how they interact to produce the documented, traceable output that defines TechLogic's product offering.
 
-## Quality Control Lab
-Our parts undergo rigorous inspection using:
-*   DIMAC and DATAGEST optical sorting systems.
-*   BOWMAN X-ray thickness analyzers.
-*   Automator Nano VISII Class 4 Laser Markers for part identification.
+==================================================
+SECTION 1 — CNC MANUFACTURING EQUIPMENT
+==================================================
+
+1.1 Swiss-Type CNC Automatic Lathes (Small-Diameter Turning)
+
+TechLogic operates nine Swiss-type CNC turning centres for components with bar stock diameters up to 32 mm. This class of machine uses a guide bushing to support the bar stock immediately at the cutting zone, which dramatically improves rigidity and dimensional stability for long, slender components — particularly critical for parts with length-to-diameter ratios above 4:1.
+
+Key capabilities of the Swiss-type fleet:
+- Maximum bar diameter: 32 mm
+- Maximum machining length (single clamping): 200 mm
+- Spindle speed range: 100–12,000 rpm
+- Number of controlled axes: up to 9 (Z, X, Y, B, C main spindle + sub-spindle C2, and gang tooling axes)
+- Live tooling stations: up to 16 per machine
+- Thread cutting capability: single-point threading, synchronised tapping, polygon milling
+- Minimum achievable diameter: 0.5 mm
+- Typical dimensional repeatability (Cpk): ≥ 1.67 on critical dimensions under SPC
+
+The Swiss-type machines are equipped with automatic bar feeders (12-bar magazine capacity, automatic bar change), coolant-through-tool systems for deep bore drilling, and chip conveyors with separation for steel and non-ferrous metals. Most machines run lights-out production on established part families during second and third shifts.
+
+1.2 Large-Format CNC Turning Centres
+
+For components requiring bar stock diameters above 32 mm, TechLogic operates four conventional CNC turning centres with chucking capability up to 120 mm diameter.
+
+Key capabilities:
+- Chuck diameter: 210 mm (three-jaw hydraulic)
+- Maximum swing: 350 mm
+- Maximum turning length: 500 mm
+- Tailstock with live centre for shaft-type components
+- C-axis with live tooling for cross-drilling and milling operations
+- Coolant-through option for deep boring
+
+These machines are primarily used for sensor housing bodies, flanged bushings, and custom housings in the 30–100 mm OD range.
+
+1.3 CNC Machining Centre (Supplementary Milling and Drilling)
+
+One 4-axis CNC vertical machining centre is available for secondary operations requiring milling, pocket machining, or precision drilling that cannot be completed on the turning centres. This machine is primarily used for custom prototypes and first-article pieces requiring complex geometry validation.
+
+1.4 Tooling and Tool Room
+
+TechLogic maintains an in-house tool room equipped with a tool grinding machine, tool presetter, and a tooling management system. Carbide inserts are supplied by three qualified vendors. Custom form tools for non-standard profiles are ground in-house, reducing tooling lead time for new part introductions from the typical external lead time of 3–6 weeks to 2–5 days.
+
+==================================================
+SECTION 2 — METROLOGY AND INSPECTION SYSTEMS
+==================================================
+
+2.1 Coordinate Measuring Machine (CMM)
+
+Primary instrument: Zeiss Contura G2 with VAST XT scanning head
+Location: temperature-controlled metrology room, 20°C ±1°C (ISO 1 compliance)
+Measurement volume: 700 × 700 × 600 mm
+Scanning speed: up to 200 mm/s
+Stylus configurations: single, star, L-shaped, for internal and external features
+Software: Zeiss CALYPSO 2024, with part programs stored in version-controlled library
+Calibration: reference sphere calibrated to national standards via accredited laboratory; full calibration cycle every 6 months
+
+CMM programmes exist for all recurring custom part families (currently 214 active programmes) and are run automatically as part of the standard final inspection routine. First-article inspection programmes are written by the metrology specialist and reviewed before release to production. All CMM reports are exported to PDF and XML formats and stored in the quality management system.
+
+2.2 Laser Scanning and Profile Measurement
+
+Instrument: Taylor Hobson Form Talysurf PGI Optics, used for high-resolution surface form and roughness measurement on optical-grade bores and external surfaces of sensor bodies.
+Additional instrument: bench-top laser micrometer (Mitutoyo LSM-506S) for non-contact diameter measurement during in-process checks on the production floor.
+
+The laser micrometer is used at machine-side for in-process measurement of diameters on critical sensor body components without removing the part from the machine, reducing measurement cycle time and eliminating re-fixturing error.
+
+2.3 Automated Vision Inspection System
+
+System type: conveyor-fed multi-camera vision inspection line
+Throughput: up to 800 parts per hour (dependent on part size)
+Camera configuration: 4 × high-resolution monochrome cameras with telecentric lenses; 2 × colour cameras for surface finish classification
+Lighting: multi-angle coaxial and darkfield LED illumination
+Inspection functions: surface defect detection (scratches, dents, tool marks), burr detection at thread entry/exit, geometric completeness check (presence of cross-holes, slots, features), dimensional screening (OD and length via shadow projection)
+Reject mechanism: pneumatic ejection to quarantine bin; rejected part serial position logged against batch record
+Integration: directly interfaced with ERP; batch pass/fail status updated automatically at end of inspection run
+
+All vision system inspection recipes are validated during first-article introduction using a set of reference OK and NOK samples. Recipe validation records are stored in the quality system.
+
+2.4 Surface Roughness Measurement
+
+Instrument: Mitutoyo SJ-410 contact profilometer
+Capability: Ra, Rz, Rq, Rmax, Rpk, Rvk
+Measured according to ISO 4287 and ISO 4288
+Used for: all parts with Ra specification on drawing, periodic process audits on ground surfaces, and post-coating roughness verification
+
+2.5 Thread and Gauge Inspection
+
+TechLogic maintains a comprehensive set of calibrated go/no-go thread gauges from M0.8 to M30 (metric coarse and fine), and NPT, BSPP, BSPT up to ¾" for imperial requirements. All gauges are calibrated annually by an accredited external laboratory. Gauge calibration due dates are tracked in the quality management system with automated alerts 30 days before expiry.
+
+2.6 Hardness Testing
+
+Instrument: Mitutoyo HM-200 Vickers hardness tester
+Loads: HV0.3, HV1, HV5, HV10
+Used for: qualification of heat-treated or case-hardened parts, hardness verification of incoming material samples, and post-coating hardness checks on plated components
+
+==================================================
+SECTION 3 — DIGITAL AND AI INFRASTRUCTURE
+==================================================
+
+3.1 Enterprise Resource Planning (ERP) System
+
+TechLogic operates an industry-specific ERP system (TeamSystem Alyante Enterprise, manufacturing module) which manages production orders, material requirements planning (MRP), purchase orders, inventory, customer order management, invoicing, and quality record linkage. The ERP was implemented in 2013 and has been substantially customised over successive versions to reflect TechLogic's specific traceability model (every production order carries a batch reference that propagates through all downstream records).
+
+The ERP is hosted on an on-premise server cluster with daily backup to a local NAS and weekly encrypted off-site backup.
+
+3.2 Quality Management System (QMS) Software
+
+TechLogic uses a purpose-built document and record management module layered on top of the ERP for quality-specific functions: document version control for drawings and procedures, corrective and preventive action (CAPA) workflows, supplier qualification records, calibration certificate management, and customer complaint logging. All records are linked to the relevant production order and batch reference, enabling full vertical traceability within the QMS.
+
+3.3 AI Assistant Infrastructure
+
+Architecture: Retrieval-Augmented Generation (RAG) system
+LLM backbone: locally hosted quantised large language model served via vLLM inference engine on on-premise GPU hardware
+Retrieval layer: hybrid dense + sparse vector search using Qdrant vector database, with BGE-small dense encoder and BM25 sparse index; Reciprocal Rank Fusion (RRF) used for result merging
+Knowledge base: six document domains (contacts, FAQ, production process, product catalogue, company history, technology reference), updated quarterly
+Prompt management: MLflow used for prompt versioning and experiment tracking
+API layer: FastAPI with Server-Sent Events (SSE) for streaming responses to the frontend
+Frontend integration: React/Vite application with TailwindCSS; chat widget accessible from all pages of the company website
+Infrastructure: all components containerised via Docker Compose; GPU host running Linux with NVIDIA drivers; entire stack air-gapped from public internet at inference level
+Data privacy: no customer conversation data leaves the on-premise infrastructure; no third-party LLM APIs used; GDPR compliant
+
+The AI assistant is the customer-facing interface of the RAG system. It is accessible 24/7 via the chat widget on the company website and is designed to provide accurate, sourced answers to questions within the six knowledge domains listed above. For questions outside the knowledge base scope, the assistant redirects to the appropriate human contact.
+
+3.4 Monitoring and Observability
+
+The AI infrastructure is monitored using a lightweight Prometheus + Grafana stack that tracks: inference latency (p50, p90, p99), retrieval recall (evaluated against a golden question set maintained by the AI team), GPU utilisation and VRAM headroom, and API error rates. Alerts are sent to the digital systems team via email and internal Slack when any metric exceeds defined thresholds. The knowledge base is re-indexed and re-evaluated after each quarterly update to verify that retrieval quality has not degraded.
+
+3.5 Cybersecurity
+
+TechLogic's digital infrastructure is protected by a layered security approach: network segmentation between production floor devices (CNC machines, CMM, vision system), office IT, and the AI inference cluster; firewall with application-layer inspection; encrypted VPN for remote access by authorised staff; and mandatory multi-factor authentication (MFA) for all administrative interfaces. Regular penetration testing is conducted annually by an external security firm. Employee cybersecurity awareness training is mandatory and conducted twice yearly.
+
+==================================================
+SECTION 4 — SUSTAINABILITY AND ENVIRONMENTAL SYSTEMS
+==================================================
+
+TechLogic is in the process of formalising its environmental management practices toward ISO 14001 certification, targeted for 2027. Current initiatives include:
+
+- Coolant recycling: all cutting coolant is collected, filtered, and reconditioned in a closed-loop system, reducing coolant consumption by approximately 75% versus through-flow systems.
+- Metal chip management: steel, brass, and aluminium chips are segregated, compacted, and sold to certified metal recyclers. In 2025, approximately 42 tonnes of metal chips were recycled.
+- LED lighting: full LED conversion of production floor and metrology room completed in 2023, reducing lighting energy consumption by approximately 55%.
+- Energy monitoring: smart meters installed on all machine tools enable per-shift energy consumption tracking, supporting identification of inefficient equipment and scheduling of energy-intensive operations during off-peak tariff periods.
+- Packaging: transition to recyclable and recycled-content packaging materials for shipped products is underway, targeting 90% recyclable packaging by end of 2026.

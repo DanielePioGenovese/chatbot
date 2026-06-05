@@ -1,8 +1,119 @@
-# MANUFACTURING PROCESS AND QUALITY ASSURANCE
-**Keywords:** traceability, workflow, inspection, certification, compliance
+TECHLOGIC S.p.A. — PRODUCTION AND QUALITY PROCESS GUIDE
+Document type: Process Reference
+Last updated: January 2026
 
-## 100% Traceability System
-Total traceability is the foundation of our production cycle. All raw materials arrive with official mill certifications. Upon entering the facility, materials are inspected, color-coded, and paired with an internal "Identity Document." This digital and physical ID follows the specific batch through every step of the workflow—from raw bar stock to the final delivered product.
+==================================================
+OVERVIEW
+==================================================
 
-## Inspection Protocols
-Quality is not just checked at the end; it is built into the process. We have implemented accurate verification processes both on-board the machine during production runs and at the end of the cycle. All our measuring instruments and gauges are uniquely coded, revised, and officially recalibrated and certified annually to ensure absolute compliance with client drawings.
+TechLogic's production workflow is built around a closed-loop process that connects customer input, manufacturing, and quality validation without breaking the traceability chain. Every component produced at the Milan facility passes through a defined sequence of stages, each with documented hand-off criteria and measurable outputs. The following document describes the full workflow from initial customer enquiry through to delivered and certified product.
+
+==================================================
+STAGE 1 — REQUEST FOR QUOTATION AND FEASIBILITY REVIEW
+==================================================
+
+Duration: typically 1 business day for standard geometries; up to 2 business days for complex profiles.
+
+When a customer submits a drawing or enquiry, the request is received by the sales team and simultaneously forwarded to the technical support desk. The application engineer performs a feasibility review that covers:
+
+- Geometry assessment: identification of tight tolerances, undercuts, deep bores, and features requiring live tooling or secondary operations.
+- Material compatibility: confirmation that the specified material is available in the required bar stock diameter and that machinability characteristics are compatible with our turning centres.
+- Tolerance stack-up analysis: critical dimensions are flagged and mapped to the corresponding inspection method (CMM, bench micrometer, pin gauging, laser scanning).
+- Surface treatment path: if the customer specifies a coating, the relevant external partner is identified and quoted.
+- Tooling review: standard tooling is confirmed or, for custom profiles, a tooling procurement estimate is added to the lead time.
+
+The feasibility output is a go/no-go decision with notes. Where a no-go is issued — for example, geometry that falls outside the machine capability envelope — the technical team suggests design modifications and contacts the customer before declining the request.
+
+==================================================
+STAGE 2 — QUOTATION AND ORDER CONFIRMATION
+==================================================
+
+Duration: quotation issued within 24 business hours; order confirmation within 4 business hours of PO receipt.
+
+Once feasibility is confirmed, the sales team generates a formal quotation that includes: part reference and drawing revision number, quoted unit price and quantity brackets, required lead time from drawing approval, surface treatment and packaging options, and documentation scope (standard delivery note or extended quality package). The quotation is sent via email with a unique quotation number.
+
+Upon receipt of the customer's purchase order referencing the quotation number, TechLogic issues an order acknowledgement confirming quantities, unit price, estimated dispatch date, and assigned batch reference number. This batch reference number is the key traceability identifier that follows the part through every subsequent stage.
+
+==================================================
+STAGE 3 — MATERIAL PROCUREMENT AND INCOMING INSPECTION
+==================================================
+
+Duration: for stock materials, same-day; for special materials, 1–5 working days depending on supplier.
+
+Upon order confirmation, the COO's planning office raises a material request against the production schedule. Materials held in the warehouse are allocated immediately. For materials not in stock, the procurement team contacts qualified suppliers from the approved vendor list (AVL).
+
+All incoming material lots are subject to incoming inspection before release to the production floor:
+
+- Visual check: surface condition of bar stock, absence of oxidation or mechanical damage.
+- Dimensional check: bar diameter verification using bench micrometer or CMM, against the material mill certificate.
+- Documentation check: the material mill certificate (EN 10204 type 3.1 preferred, type 2.2 minimum) is reviewed for grade, heat number, and mechanical/chemical compliance against the customer drawing specification.
+
+Material lots that pass incoming inspection are tagged with a green acceptance label including heat number, lot code, and internal batch reference. Non-conforming material is quarantined and returned to the supplier. A material traceability record is created in the ERP system and linked to the production order.
+
+==================================================
+STAGE 4 — CNC PRODUCTION AND IN-PROCESS MEASUREMENT
+==================================================
+
+Duration: varies by complexity. Typical cycle times: 30 seconds to 8 minutes per piece for standard profiles.
+
+Production is assigned to one of TechLogic's CNC turning centres based on machine capacity and part size. Operators receive a route card that specifies: the production order and batch reference, machine assignment and tool offsets, critical dimensions requiring in-process measurement and frequency, and packaging and labelling instructions.
+
+The first piece produced in each batch (first-article piece) is held for a complete dimensional check before full production begins. This first-article review catches any tool offset errors, fixture seating problems, or material anomalies before the full batch is committed.
+
+During production, critical dimensions are measured at defined intervals — typically every 25 pieces or upon any tool change — using bench micrometers, pin gauges, thread gauges, and optical comparators at the machine. Measurement results are recorded on the in-process control card linked to the batch. If a dimension trends toward the tolerance boundary, the operator adjusts offsets and flags the batch for increased sampling at the final inspection stage.
+
+For high-value or complex parts, a statistical process control (SPC) chart is maintained in real time to detect drift before it results in non-conforming production.
+
+==================================================
+STAGE 5 — FINAL INSPECTION
+==================================================
+
+Duration: 1–4 hours depending on batch size and inspection scope.
+
+Every completed batch undergoes final inspection in TechLogic's dedicated metrology room before release. The metrology room is temperature-controlled at 20°C ±1°C in compliance with ISO 1 measurement standards.
+
+Final inspection methods used depending on feature requirements:
+
+- Coordinate measuring machine (CMM): used for complex 3D profiles, position tolerances, perpendicularity, and features that cannot be checked with hand gauging. The CMM programme for each part is stored in the quality system with version control.
+- Laser scanning: used for full-profile comparison on sensor bodies and prismatic components requiring high-density surface deviation mapping.
+- Vision inspection system: automated camera-based system checks all pieces in the batch for surface defects, burrs, missing features, and geometric anomalies. Parts failing the vision gate are automatically rejected and quarantined.
+- Thread gauging: go/no-go thread gauges calibrated to ISO limits, used for 100% of threaded features in standard batches.
+- Surface roughness measurement: tactile profilometer used to verify Ra values where specified on the drawing.
+- Hardness testing: Vickers or Rockwell testing performed on heat-treated or coated parts where the customer specifies hardness requirements.
+
+The inspection results are recorded against the batch reference and the batch status is set to RELEASED, HOLD, or REJECT in the ERP system. HOLD batches are reviewed by the quality manager before disposition. REJECT batches are scrapped, root cause is documented, and a corrective action is initiated.
+
+==================================================
+STAGE 6 — DOCUMENTATION AND PACKAGING
+==================================================
+
+Duration: 30–90 minutes per batch.
+
+Released batches are cleaned (ultrasonic cleaning or manual degreasing depending on material and application), dried, and packaged according to customer requirements. Default packaging is polybag with part label inside a cardboard box. Reusable trays, anti-static packaging, and VCI-treated film are available on request.
+
+The documentation package assembled for each shipped batch includes:
+- Delivery note with batch reference, part number, revision, quantity, and order reference.
+- Dimensional control report (if specified): summary of measured values versus nominal and tolerance, sample size, and inspector signature.
+- Material traceability record: links the batch to the incoming material lot and original mill certificate.
+- Certificate of conformance (if specified): signed declaration that the batch meets drawing requirements.
+- Surface treatment certificate (if applicable): issued by the external treatment partner.
+
+All documentation is archived in the quality management system for a minimum of 10 years.
+
+==================================================
+STAGE 7 — DISPATCH AND LOGISTICS
+==================================================
+
+Duration: same-day dispatch for orders confirmed by 14:00 CET; next-day dispatch for later confirmations.
+
+The logistics team arranges collection with the selected carrier (DHL Express, GLS, or TNT depending on destination and service level). A tracking number is generated and automatically emailed to the customer contact on the order.
+
+Import/export documentation, EUR.1 movement certificates, and customs invoices are prepared by the logistics team for non-EU shipments. Dangerous goods classification is reviewed for any chemical or treated materials.
+
+==================================================
+STAGE 8 — POST-DELIVERY SUPPORT
+==================================================
+
+After delivery, TechLogic's technical and quality teams remain available for post-delivery queries. Standard post-delivery activities include: incoming inspection support (guidance on customer-side receiving inspection), non-conformity investigation (if the customer identifies an issue), repeat order scheduling under blanket agreements, and continuous improvement feedback integration for recurring part families.
+
+Customer feedback received after delivery is logged in the quality management system and reviewed quarterly as part of the management review process required under ISO 9001:2015.

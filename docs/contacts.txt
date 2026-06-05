@@ -1,17 +1,218 @@
-# CONTACT INFORMATION
-**Keywords:** address, phone, email, location, support
+TECHLOGIC S.p.A. — COMPLETE CONTACT DIRECTORY
+Document type: Contact & Department Reference
+Last updated: January 2026
 
-**Headquarters & Production Facility:**
-Capitani Precision Machining (Capitani Metal Parts)
-1900 Nicolini Drive
-Cleveland, OH 44114, USA
+==================================================
+COMPANY REGISTERED DETAILS
+==================================================
 
-**Contact Details:**
-*   **Main Phone:** +1 (216) 555-8796
-*   **General Inquiries:** info@capitanimetalparts.com
-*   **Sales & RFQs:** sales@capitanimetalparts.com
-*   **Technical Support:** engineering@capitanimetalparts.com
+TechLogic S.p.A.
+Via Industria 24
+20100 Milano (MI)
+Italy
 
-**Business Hours:**
-Monday - Friday: 8:00 AM - 5:00 PM (EST)
-Closed on weekends and major US holidays.
+Main switchboard:        +39 02 1234 5678
+Main fax:                +39 02 1234 5679
+General inquiries:       info@techlogic.example
+Sales and quotations:    sales@techlogic.example
+Technical support:       support@techlogic.example
+Quality department:      quality@techlogic.example
+Logistics and shipping:  logistics@techlogic.example
+Administrative/billing:  admin@techlogic.example
+
+Website:                 www.techlogic.example
+VAT number:              IT08234560156
+Company registration:    Camera di Commercio di Milano – REA MI-1456789
+Share capital:           EUR 500,000 fully paid up
+
+==================================================
+OFFICE HOURS
+==================================================
+
+Monday to Friday:        08:30 – 18:00 CET
+Saturday:                09:00 – 12:30 CET (sales only, no production)
+Sunday and holidays:     Closed
+
+Out-of-hours coverage is provided 24/7 via the AI assistant embedded on the company website. The assistant can handle product questions, generate preliminary quotation data, retrieve documentation, and escalate urgent tickets to the on-call team.
+
+Italian public holidays observed: New Year's Day, Epiphany, Easter Monday, Liberation Day (25 April), Labour Day (1 May), Republic Day (2 June), Ferragosto (15 August), All Saints' Day (1 November), Immaculate Conception (8 December), Christmas Day, St. Stephen's Day (26 December). The Milan patron saint holiday (7 December, Sant'Ambrogio) is also observed.
+
+==================================================
+EXECUTIVE MANAGEMENT
+==================================================
+
+Chief Executive Officer (CEO):
+Marco Ferretti
+Email:  m.ferretti@techlogic.example
+Direct: +39 02 1234 5601
+Area of responsibility: strategic direction, investor relations, key account oversight
+
+Chief Operations Officer (COO):
+Giulia Marchetti
+Email:  g.marchetti@techlogic.example
+Direct: +39 02 1234 5602
+Area of responsibility: production planning, supply chain, ERP governance
+
+Chief Financial Officer (CFO):
+Enrico Sala
+Email:  e.sala@techlogic.example
+Direct: +39 02 1234 5603
+Area of responsibility: financial reporting, credit management, procurement budgets
+
+Sales Director:
+Alessandro Ricci
+Email:  a.ricci@techlogic.example
+Direct: +39 02 1234 5610
+Area of responsibility: domestic and export sales strategy, key account management
+
+Technical Director:
+Francesca Bianchi
+Email:  f.bianchi@techlogic.example
+Direct: +39 02 1234 5615
+Area of responsibility: CNC engineering, tooling, process qualification
+
+Quality Manager:
+Roberto Conti
+Email:  r.conti@techlogic.example
+Direct: +39 02 1234 5620
+Area of responsibility: ISO compliance, inspection systems, audit management, non-conformity resolution
+
+Logistics Manager:
+Simona Esposito
+Email:  s.esposito@techlogic.example
+Direct: +39 02 1234 5625
+Area of responsibility: carrier partnerships, EU delivery corridors, warehouse operations
+
+Head of Digital Systems and AI:
+Luca Ferrara
+Email:  l.ferrara@techlogic.example
+Direct: +39 02 1234 5630
+Area of responsibility: AI assistant infrastructure, ERP integrations, data systems, cybersecurity
+
+==================================================
+SALES TEAM
+==================================================
+
+Standard quotation response time: within 24 business hours.
+Recurring supply agreement inquiries: contact the sales director directly.
+
+Sales Team — General:
+Email: sales@techlogic.example
+Phone: +39 02 1234 5611
+
+Sales Representative — Northern Italy and Lombardy:
+Paolo Greco
+Email:  p.greco@techlogic.example
+Mobile: +39 347 123 4567
+
+Sales Representative — Central and Southern Italy:
+Marta Lombardi
+Email:  m.lombardi@techlogic.example
+Mobile: +39 347 765 4321
+
+Export Sales — DACH Region (Germany, Austria, Switzerland):
+Stefan Müller
+Email:  s.muller@techlogic.example
+Mobile: +49 172 456 7890
+Languages: German, English, Italian
+
+Export Sales — France, Belgium, Netherlands:
+Claire Dubois
+Email:  c.dubois@techlogic.example
+Mobile: +33 6 12 34 56 78
+Languages: French, English, Italian
+
+Export Sales — Spain, Portugal:
+Carlos Navarro
+Email:  c.navarro@techlogic.example
+Mobile: +34 622 987 654
+Languages: Spanish, English
+
+Export Sales — Eastern Europe (Poland, Czech Republic, Slovakia, Hungary):
+Tomasz Wierzbicki
+Email:  t.wierzbicki@techlogic.example
+Mobile: +48 601 234 567
+Languages: Polish, English, German
+
+==================================================
+TECHNICAL SUPPORT
+==================================================
+
+The technical support team assists with drawing feasibility assessments, material selection guidance, tolerance stack-up analysis, and post-delivery technical queries. All incoming technical requests are assigned a ticket reference number within 2 business hours and resolved or escalated within one working day.
+
+Technical Support Desk:
+Email: support@techlogic.example
+Phone: +39 02 1234 5640
+
+Senior Application Engineer:
+Andrea Romano
+Email:  a.romano@techlogic.example
+Direct: +39 02 1234 5641
+Specialisation: CNC turning, thread-form geometry, miniature assemblies
+
+Metrology and Calibration Specialist:
+Chiara De Luca
+Email:  c.deluca@techlogic.example
+Direct: +39 02 1234 5642
+Specialisation: dimensional reporting, CMM interpretation, GD&T
+
+Process Engineer:
+Davide Martinelli
+Email:  d.martinelli@techlogic.example
+Direct: +39 02 1234 5643
+Specialisation: material science, surface treatment, tooling optimisation
+
+==================================================
+QUALITY DEPARTMENT
+==================================================
+
+The quality department manages all inspection documentation, batch certificates, material traceability records, and customer audit arrangements. Customers requesting copies of dimensional control reports, first-article inspection (FAI) results, or non-conformity response documents should contact the quality team with their order reference number.
+
+Quality Department:
+Email: quality@techlogic.example
+Phone: +39 02 1234 5620
+
+ISO 9001:2015 Certificate number: IT-QMS-2019-00471
+Certification body: Bureau Veritas Italia S.r.l.
+Certificate expiry: December 2026 (renewal audit scheduled for Q3 2026)
+Scope: design, CNC machining, inspection, and supply of precision turned metallic components
+
+==================================================
+LOGISTICS AND SHIPPING
+==================================================
+
+TechLogic coordinates EU deliveries primarily through DHL Express, GLS, and TNT. Standard domestic Italian shipments can also be handled via SDA Poste Italiane for non-urgent loads.
+
+Logistics Department:
+Email: logistics@techlogic.example
+Phone: +39 02 1234 5625
+
+Standard EU delivery time: 24–48 business hours from confirmed dispatch
+Large-batch pallet freight: arranged on request via road carriers
+Available Incoterms: EXW (default), DAP, DDP (available on agreement)
+Customs documentation support: available for shipments outside the EU on request
+
+==================================================
+ADMINISTRATION AND BILLING
+==================================================
+
+For invoicing queries, credit note requests, payment confirmations, or document duplicates, contact the administration office.
+
+Administration:
+Email: admin@techlogic.example
+Phone: +39 02 1234 5605
+Accounts payable / receivable: +39 02 1234 5606
+
+Accepted payment methods: bank transfer (SEPA), 30/60-day net terms for qualified accounts, credit card via secure portal for one-off orders under EUR 2,000.
+
+==================================================
+URGENT AND EMERGENCY CONTACTS
+==================================================
+
+For critical production-support situations — same-day delivery requests, critical stock shortages, quality holds requiring immediate resolution — customers should:
+
+1. Call the main sales line at +39 02 1234 5610 and clearly state URGENT at the beginning of the call.
+2. Send an email to sales@techlogic.example with subject line starting with [URGENT].
+3. Use the AI assistant on the website, available 24/7, which can automatically flag and escalate priority tickets to the on-call sales representative.
+
+On-call coverage for urgent escalations: Monday–Friday outside office hours and Saturday morning via the AI assistant escalation system. Response SLA for urgent flagged tickets: 2 hours.
